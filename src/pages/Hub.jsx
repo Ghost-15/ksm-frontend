@@ -1,0 +1,165 @@
+import NosProduits from "../compoments/NosProduits.jsx";
+import Formulaire from "../compoments/Formulaire.jsx";
+
+function Hub() {
+    return (
+        <div>
+            <section className="h-screen mt-5 flex flex-col container mx-auto bg-[#E0E0E0] rounded-[59px] pt-16 px-10 md:items-center md:px-20 md:pt-[68px] md:flex-row md:justify-between gap-10 z-30 shadow-2xl">
+                <div className="flex flex-col items-start text-black md:pb-[68px] z-10  ">
+                    <h1 className="text-4xl font-black  leading-[125%] sm:text-5xl md:text-[96px] md:leading-[125%]  ">
+                    <span className="relative after:w-[120%] after:h-full after:bg-white after:block after:absolute after:-z-10 after:top-0 after:-rotate-2">
+                        LET’S</span>
+                        <br/> EXPLORE <br/>
+                        <span className="relative after:w-[120%] after:h-full after:bg-primary after:block after:absolute after:-z-10 after:top-0 after:-rotate-2">
+                        UNIQUE</span>
+                        <br/> CLOTHES.
+                    </h1>
+                    <p className="md:text-[32px]">Des equipement performant au prix adéquat</p>
+                    {/*<div className="flex flex-col md:flex-row md:items-center justify-evenly gap-9 pt-8">*/}
+                    {/*    <div className="w-1/2 h-1/2">*/}
+                    {/*        <img className="" src="./images/banner-image-2.png" alt="banner image" srcSet=""/>*/}
+                    {/*    </div>*/}
+                    {/*    <a className="bg-black text-white rounded-md py-4 px-4 text-center" href="#">Shop Now</a>*/}
+                    {/*</div>*/}
+                </div>
+                <div className="">
+                    <img className="w-full rounded-xl" src="/hero.jpg" alt="banner image"/>
+                </div>
+            </section>
+
+            <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Nos produits</h1>
+            <h2 className="text-xl text-black flex justify-center">pour assurer votre sécurité</h2>
+
+            <NosProduits/>
+
+            <div className='grid grid-cols-3 p-14'>
+                <div className='flex flex-col justify-center'>
+                    <h1 className='md:text-4xl sm:text-3xl text-[#3399FF] text-2xl font-bold py-2'>
+                        Découvrez notre gamme ERGOS,
+                        <br/>contre les impacts !
+                    </h1>
+                    <p>
+                        Dernier né de la marque ERGOS, le gant RGO SHOCK 398340, vous offrira une protection contre les impacts, sans compromis sur le confort et la dextérité.
+                        <br/>
+                        Le modèle 398300 sera également répondre à vos attentes en vous apportant une protection complémentaire contre les chocs, grâce à son matelassage intégré à la paume.
+                        <br/>
+                        Consultez nos solutions plus en détail, en parcourant les fiches articles de ces deux références.
+                    </p>
+                </div>
+
+
+                <div id="default-carousel" className="relative w-full" data-carousel="slide">
+                    <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="/public/questmark.jpg"
+                                 className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="..."/>
+                        </div>
+                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="/produits/securite_noire.jpg"
+                                 className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="..."/>
+                        </div>
+                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="/produits/securite_orange.jpg"
+                                 className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="..."/>
+                        </div>
+                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="/produits/protection_tissus.jpg"
+                                 className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="..."/>
+                        </div>
+                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="/questmark.jpg"
+                                 className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                 alt="..."/>
+                        </div>
+                    </div>
+                    <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                        <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                                data-carousel-slide-to="0"></button>
+                        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                                data-carousel-slide-to="1"></button>
+                        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                                data-carousel-slide-to="2"></button>
+                        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                                data-carousel-slide-to="3"></button>
+                        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+                                data-carousel-slide-to="4"></button>
+                    </div>
+                    <button type="button"
+                            className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-prev>
+        <span
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                      d="M5 1 1 5l4 4"/>
+            </svg>
+            <span className="sr-only">Previous</span>
+        </span>
+                    </button>
+                    <button type="button"
+                            className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                            data-carousel-next>
+        <span
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                      d="m1 9 4-4-4-4"/>
+            </svg>
+            <span className="sr-only">Next</span>
+        </span>
+                    </button>
+                </div>
+
+            </div>
+
+            <div className="w-full py-28 text-center text-4xl font-bold items-center justify-center">
+                <p className='py-14 md:text-3xl sm:text-2xl text-center'>
+                    Nos Services</p>
+            </div>
+
+            <div className='w-full bg-[#E0E0E0] py-16 px-4'>
+                <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
+                    <div className='flex flex-col justify-center'>
+                        <img className='w-[500px] mx-auto my-4' src="/questmark.jpg" alt='why'/>
+                    </div>
+
+                    <div className='flex flex-col justify-center'>
+                        <h1 className='md:text-4xl sm:text-3xl text-[#3399FF] text-2xl font-bold py-2'>
+                            Pourquoi KongoSafeManagement ?
+                            <br/>qualite, performance
+                            <br/>et satisfaction client
+                        </h1>
+                        <p>
+                            Developing ourselves to be recognized as a service company and partner of a choice in Congo
+                            and in the Sub-region oil & gas industry for delivering wireline & slickline services
+                            and bringing value to our industry and our community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="w-full py-28 text-center text-4xl font-bold items-center justify-center">
+                <p className='py-14 md:text-3xl sm:text-2xl text-center'>
+                    Nos partenaires</p>
+            </div>
+
+            <section className="flex flex-col bg-blue-900 items-center py-10 bg-primary">
+                <h4 className="text-3xl font-black text-white text-center tracking-[1.7px] mb-8 md:leading-[70px] md:text-[55px]  ">
+                    Vous ne trouvez pas<br/>ce que vous cherchez ?</h4>
+                <p className="text-xl text-center text-white font-normal md:leading-9 tracking-[1px] md:text-[32px]">
+                    Remplissez les détails ci-dessous</p>
+
+                <Formulaire/>
+            </section>
+
+        </div>
+    );
+}
+
+export default Hub;
