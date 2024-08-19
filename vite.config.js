@@ -4,6 +4,7 @@ import tailwindcss from "tailwindcss";
 
 export default defineConfig({
   plugins: [react()],
+  base: "/ksm/",
   css: {
     postcss: {
       plugins: [tailwindcss()],
