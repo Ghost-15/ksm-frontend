@@ -1,6 +1,7 @@
 {
-  "homepage": "https://ghost-15.github.io/ksm/",
-  "name": "ksm",
+
+  "homepage": "https://ghost-15.github.io/ksm_frontend/",
+  "name": "ksm_frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",

@@ -9,7 +9,7 @@ function NosProduits() {
                         Protection de la tête, des yeux et du visage</h5>
                     <p className="mb-3 font-normal text-gray-400">Casques, casquettes, écrans et lunettes de sécurité,
                         adaptés à chaque activité.</p>
-                    <a href="/protection_de_la_tete" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800">
+                    <a href="/protection-de-la-tete-et-du-visage" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800">
                         En savoir plus
                         <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

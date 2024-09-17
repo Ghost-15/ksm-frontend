@@ -1,11 +1,4 @@
 
-function Visage() {
-    return (
-        <div>
-            <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection de la tête, des yeux et du visage</h1>
-
-            <div className="mt-10 justify-items-center grid grid-cols-1 gap-4">
-
             <div className="grid grid-cols-3 gap-4">
                 <div className="max-w-xs p-6 bg-gray-800 border border-gray-700 rounded-lg shadow">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
@@ -154,10 +147,3 @@ function Visage() {
                     </div>
                 </div>
             </div>
-
-            <div className="mt-10"/>
-        </div>
-    );
-}
-
-export default Visage;
