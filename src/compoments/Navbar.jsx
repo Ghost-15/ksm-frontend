@@ -1,4 +1,20 @@
+import { useState, useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { toggleStatusTab } from '../stores/cart.jsx'
+
 export default function Navbar() {
+    const [totalQuantity, setTotalQuantity] = useState(0);
+    const carts = useSelector(store => store.cart.items);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        let total = 0;
+        carts.forEach(item => total += item.quantity);
+        setTotalQuantity(total);
+    }, [carts])
+    const handleOpenTabCart = () => {
+        dispatch(toggleStatusTab());
+    }
+
     return (
         <nav className="bg-white border-gray-200">
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
@@ -22,7 +38,7 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/protection-de-la-tete-et-du-visage" className="text-white font-bold">
+                                            <a href="/protection-de-la-tete-des-yeux-et-du-visage" className="text-white font-bold">
                                                 Protection de la tête,
                                                 <br/>des yeux et du visage
                                             </a>
@@ -38,7 +54,7 @@ export default function Navbar() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/protection-de-la-tete-et-du-visage" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <a href="/protection-de-la-tete-des-yeux-et-du-visage" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -52,7 +68,7 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a className="text-white font-bold">
+                                            <a href="/protection-auditive" className="text-white font-bold">
                                                 Bouchons d&apos;oreilles
                                                 <br/>et casques antibruit
                                             </a>
@@ -68,7 +84,7 @@ export default function Navbar() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <a href="/protection-auditive" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                             Autres
                                             <span className="sr-only">Explore our brands </span>
                                             <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -83,7 +99,7 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a className="text-white font-bold">
+                                            <a href="/protection-respiratoire" className="text-white font-bold">
                                                 Protection
                                                 <br/>respiratoire
                                             </a>
@@ -99,7 +115,7 @@ export default function Navbar() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <a href="/protection-respiratoire" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -113,7 +129,7 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a className="text-white font-bold">
+                                            <a href="/protection-des-mains" className="text-white font-bold">
                                                 Gants de protection
                                                 <br/>et de travail
                                             </a>
@@ -129,7 +145,7 @@ export default function Navbar() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <a href="/protection-des-mains" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -143,7 +159,7 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a className="text-white font-bold">
+                                            <a href="/protection-des-pieds" className="text-white font-bold">
                                                 Chaussures de sécurité
                                                 <br/>et de travail
                                             </a>
@@ -159,7 +175,7 @@ export default function Navbar() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <a href="/protection-des-pieds" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -173,7 +189,7 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a className="text-white font-bold">
+                                            <a href="/protection-du-corps" className="text-white font-bold">
                                                 Vêtements de
                                                 <br/>travail
                                             </a>
@@ -189,7 +205,7 @@ export default function Navbar() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <a href="/protection-du-corps" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -203,7 +219,7 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a className="text-white font-bold">
+                                            <a href="/protection-antichute-longes" className="text-white font-bold">
                                                 Protection
                                                 <br/>antichute
                                             </a>
@@ -219,7 +235,7 @@ export default function Navbar() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <a href="/protection-antichute-longes" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -233,7 +249,7 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a className="text-white font-bold">
+                                            <a href="/completer-sa-protection" className="text-white font-bold">
                                                 Compléter sa
                                                 <br/>protection
                                             </a>
@@ -249,7 +265,7 @@ export default function Navbar() {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <a href="/completer-sa-protection" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -269,9 +285,18 @@ export default function Navbar() {
                             <button className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#99CCFF] md:p-0 md:w-auto">
                                 Service
                             </button>
+                        </li>
 
+
+                        <li>
+                            <button className='flex items-center justify-between w-full py-2 px-3 bg-gray-100 rounded-full relative' onClick={handleOpenTabCart}>
+                                <img src="/iconCart.png" alt="" className='w-6'/>
+                                <span className='absolute top-2/3 right-1/2 bg-red-500 text-white text-sm
+                            w-5 h-5 rounded-full flex justify-center items-center'>{totalQuantity}</span>
+                            </button>
                         </li>
                     </ul>
+
                 </div>
             </div>
         </nav>

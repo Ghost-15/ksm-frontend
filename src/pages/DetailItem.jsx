@@ -1,5 +1,35 @@
+import { useEffect, useState} from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../stores/cart.jsx';
+// import { useParams } from 'react-router-dom'
 
-function DetailItem() {
+const DetailItem = () => {
+    const carts = useSelector(store => store.cart.items);
+    console.log(carts)
+    // const { slug } = useParams();
+    const dispatch = useDispatch();
+    const [detail, setDetail] = useState([]);
+    const [quantity, setQuantity] = useState(1);
+
+    useEffect(() => {
+        const findDetail = detail.filter(detail => detail.name === "casqueKask");
+        if(findDetail.length > 0){
+            setDetail(findDetail[0]);
+        }
+    }, [detail])
+    const handleMinusQuantity = () => {
+        setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
+    }
+    const handlePlusQuantity = () => {
+        setQuantity(quantity + 1);
+    }
+    const handleAddToCart = () => {
+        dispatch(addToCart({
+            productId: detail.id,
+            quantity: quantity
+        }));
+    }
+
     return (
         <div className="flex items-center justify-center bg-fixed bg-center h-screen bg-cover">
 
@@ -69,13 +99,27 @@ function DetailItem() {
 
                             <div className="flex justify-end">
                                 <span className="text-3xl text-right font-bold text-gray-900 ">
-                                    117,87 € HT<br/>
-                                <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Appeler nous</a>
-                                </span>
+                                    77 317 FCFA HT<br/></span>
                             </div>
+
+                            <div className="flex justify-end">
+                            <div className="grid grid-cols-3 gap-2">
+                                 <div className='grid grid-cols-3 gap-2 justify-center items-center'>
+                                    <button className='bg-gray-100 font-bold text-xl rounded-xl flex justify-center items-center' onClick={handleMinusQuantity}>-</button>
+                                    <span className='bg-gray-200 font-bold text-xl rounded-xl flex justify-center items-center'>{quantity}</span>
+                                    <button className='bg-gray-100 font-bold text-xl rounded-xl flex justify-center items-center' onClick={handlePlusQuantity}>+</button>
+                                </div>
+                            <button className='bg-slate-900 text-white px-7 py-3 rounded-xl shadow-2xl' onClick={handleAddToCart}>
+                                Ajouter au panier
+                            </button>
+
+                            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                Appeler nous
+                            </button>
                         </div>
+                    </div>
                 </div>
+            </div>
         </div>
     );
 }

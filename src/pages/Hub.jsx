@@ -11,7 +11,7 @@ function Hub() {
                         VENTE</span>
                         <br/>SPECIALISE<br/>
                         <span className="relative after:w-[120%] after:h-full after:bg-primary after:block after:absolute after:-z-10 after:top-0 after:-rotate-2">
-                        DES EPI.</span>
+                        DES EPI</span>
                         <br/>
                     </h1>
                     <p className="md:text-[32px]">Des equipement performant au prix adéquat</p>
@@ -35,7 +35,7 @@ function Hub() {
             <div className='grid grid-cols-3 p-14'>
                 <div className='flex flex-col justify-center'>
                     <h1 className='md:text-4xl sm:text-3xl text-[#3399FF] text-2xl font-bold py-2'>
-                        Découvrez notre gamme ERGOS,
+                        Découvrez notre gamme,
                         <br/>contre les impacts !
                     </h1>
                     <p>
