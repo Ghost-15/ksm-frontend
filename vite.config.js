@@ -8,5 +8,18 @@ export default defineConfig({
     postcss: {
       plugins: [tailwindcss()],
     }
-  }
+  },
+  esbuild: {
+    loader: 'jsx',
+    include: /.*\.jsx?$/,
+    exclude: []
+  },
+  optimizeDeps: {
+    force: true,
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
 })

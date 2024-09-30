@@ -2,7 +2,7 @@
 function IndexTYV() {
     return (
         <div>
-            <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection de la tête, des yeux et du visage</h1>
+            <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF]">Protection de la tête, des yeux et du visage</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
                 <a href="/protection-de-la-tete-des-yeux-et-du-visage">
@@ -23,10 +23,12 @@ function IndexTYV() {
                         Lunettes
                     </button>
                 </a>
-                <button type="button"
-                        className="text-white bg-gray-900 border border-gray-900 hover:bg-blue-500 hover:border-blue-500 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">
-                    Masque
-                </button>
+                <a>
+                    <button type="button"
+                            className="text-white bg-gray-900 border border-gray-900 hover:bg-blue-500 hover:border-blue-500 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">
+                        Masque
+                    </button>
+                </a>
             </div>
 
             <div className="mt-10 justify-items-center grid grid-cols-1 gap-4">

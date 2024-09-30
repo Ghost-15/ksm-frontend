@@ -17,6 +17,12 @@ import IndexC from "./pages/protection_pieds/IndexC.jsx";
 import IndexV from "./pages/protection_corps/IndexV.jsx";
 import IndexA from "./pages/protection_antichute/IndexA.jsx";
 import IndexComp from "./pages/protection_comp/IndexComp.jsx";
+import Login from "./pages/Login.jsx";
+import Burreau from "./pages/Burreau.jsx";
+import Forbidden from "./Forbidden.jsx";
+import AddUser from "./pages/AddUser.jsx";
+import AddProduct from "./pages/AddProduct.jsx";
+import RequireToken from "./auth/RequireToken.js";
 
 function App() {
     useEffect(()=>{
@@ -27,19 +33,30 @@ function App() {
         <Navbar/>
             <Routes>
                 <Route exact path="/" element={<Hub/>}/>
-                <Route exact path="/protection-de-la-tete-des-yeux-et-du-visage" element={<IndexTYV/>}/>
-                <Route exact path="/protection-des-lunettes" element={<Lunettes/>}/>
-                <Route exact path="/protection-auditive" element={<IndexBOCA/>}/>
-                <Route exact path="/protection-respiratoire" element={<IndexR/>}/>
-                <Route exact path="/protection-des-mains" element={<IndexG/>}/>
-                <Route exact path="/protection-des-pieds" element={<IndexC/>}/>
-                <Route exact path="/protection-du-corps" element={<IndexV/>}/>
-                <Route exact path="/protection-antichute-longes" element={<IndexA/>}/>
-                <Route exact path="/completer-sa-protection" element={<IndexComp/>}/>
-                <Route exact path="/detail-item" element={<DetailItem/>}/>
-                <Route exact path="/pdf" element={<PDFViewer/>}/>
-                <Route exact path="/contacter-nous" element={<Contact/>}/>
+                <Route exact path="Login" element={<Login/>} />
+
+                <Route exact path="protection-de-la-tete-des-yeux-et-du-visage" element={<IndexTYV/>}/>
+                <Route exact path="protection-des-lunettes" element={<Lunettes/>}/>
+                <Route exact path="protection-auditive" element={<IndexBOCA/>}/>
+                <Route exact path="protection-respiratoire" element={<IndexR/>}/>
+                <Route exact path="protection-des-mains" element={<IndexG/>}/>
+                <Route exact path="protection-des-pieds" element={<IndexC/>}/>
+                <Route exact path="protection-du-corps" element={<IndexV/>}/>
+                <Route exact path="protection-antichute-longes" element={<IndexA/>}/>
+                <Route exact path="completer-sa-protection" element={<IndexComp/>}/>
+                <Route exact path="detail-item" element={<DetailItem/>}/>
+                <Route exact path="pdf" element={<PDFViewer/>}/>
+                <Route exact path="contacter-nous" element={<Contact/>}/>
                 <Route path="*" element={<Missing/>} />
+
+
+                <Route element={<RequireToken/>}>
+                    <Route exact path="Burreau" element={<Burreau/>} />
+                    <Route exact path="addproduct" element={<AddProduct/>}/>
+                    <Route exact path="adduser" element={<AddUser/>} />
+                    <Route path="forbidden" element={<Forbidden/>} />
+                </Route>
+
             </Routes>
         <Endbar/>
     </main>

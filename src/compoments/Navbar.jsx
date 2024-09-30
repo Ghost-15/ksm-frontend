@@ -1,19 +1,5 @@
-import { useState, useEffect} from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { toggleStatusTab } from '../stores/cart.jsx'
 
 export default function Navbar() {
-    const [totalQuantity, setTotalQuantity] = useState(0);
-    const carts = useSelector(store => store.cart.items);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        let total = 0;
-        carts.forEach(item => total += item.quantity);
-        setTotalQuantity(total);
-    }, [carts])
-    const handleOpenTabCart = () => {
-        dispatch(toggleStatusTab());
-    }
 
     return (
         <nav className="bg-white border-gray-200">
@@ -22,8 +8,7 @@ export default function Navbar() {
                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-black">
                         KongoSafeManagement Shop</span>
                 </a>
-
-                <div id="mega-menu" className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
+                <div id="mega-menu" className="justify-items-center hidden w-full md:flex md:w-auto md:order-1">
                     <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
 
                         <li>
@@ -289,10 +274,10 @@ export default function Navbar() {
 
 
                         <li>
-                            <button className='flex items-center justify-between w-full py-2 px-3 bg-gray-100 rounded-full relative' onClick={handleOpenTabCart}>
+                            <button className='flex items-center justify-between w-full py-2 px-3 bg-gray-100 rounded-full relative'>
                                 <img src="/iconCart.png" alt="" className='w-6'/>
                                 <span className='absolute top-2/3 right-1/2 bg-red-500 text-white text-sm
-                            w-5 h-5 rounded-full flex justify-center items-center'>{totalQuantity}</span>
+                            w-5 h-5 rounded-full flex justify-center items-center'>0</span>
                             </button>
                         </li>
                     </ul>
