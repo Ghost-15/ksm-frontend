@@ -2,11 +2,10 @@ import {useNavigate} from "react-router-dom";
 
 function Forbidden() {
     const navigate = useNavigate();
-
     const goBack = () => navigate(-1);
 
     return (
-        <main  className='flex justify-center'>
+        <main  className='flex h-screen justify-center'>
             <div className='h-56 grid grid-cols-1 gap-4 content-around'>
                 <br />
                 <h1 className="text-4xl text-red-600 font-bold items-center justify-center">

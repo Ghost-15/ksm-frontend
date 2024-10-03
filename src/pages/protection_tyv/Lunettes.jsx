@@ -5,7 +5,7 @@ function Lunettes() {
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection de la tête, des yeux et du visage</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
-                <a href="/protection-de-la-tete-et-du-visage">
+                <a href="/protection-de-la-tete-des-yeux-et-du-visage">
                 <button type="button"
                         className="text-white bg-gray-900 border border-gray-900 hover:bg-blue-500 hover:border-blue-500 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">
                     Produits phares
@@ -43,7 +43,7 @@ function Lunettes() {
                                     Lunettes de sécurité ERGOS BENGALE</h5>
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900">
-                                        4,07 € HT</span>
+                                        2669 FCFA HT</span>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@ function Lunettes() {
                                     Surlunettes de sécurité ERGOS ALIZÉ LITE</h5>
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900">
-                                        3,50 € HT</span>
+                                        2295 FCFA HT</span>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ function Lunettes() {
                                     Surlunettes de sécurité ERGOS LEVANT LITE</h5>
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900">
-                                        2,74 € HT</span>
+                                        1797 FCFA HT</span>
                                 </div>
                             </div>
                         </div>

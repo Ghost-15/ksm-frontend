@@ -23,8 +23,19 @@ import Forbidden from "./Forbidden.jsx";
 import AddUser from "./pages/AddUser.jsx";
 import AddProduct from "./pages/AddProduct.jsx";
 import RequireToken from "./auth/RequireToken.js";
+import RequireEmail from "./auth/RequireEmail.js";
+import ChangePswd from "./pages/ChangePswd.jsx";
+import ForgotPswd from "./pages/ForgotPswd.jsx";
+import Activation from "./pages/Activation.jsx";
+import Validation from "./pages/Validation.jsx";
+// import RequireAuth from "./auth/RequireAuth.js";
 
 function App() {
+    // const ROLES = {
+    //     'CEO': "CEO",
+    //     'DEV': "DEV",
+    //     'ADMIN': "ADMIN"
+    // }
     useEffect(()=>{
         initFlowbite();
     }, []);
@@ -34,6 +45,9 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Hub/>}/>
                 <Route exact path="Login" element={<Login/>} />
+                <Route exact path="validation" element={<Validation/>}/>
+                <Route exact path="forgotPswd" element={<ForgotPswd/>}/>
+                <Route exact path="activation" element={<Activation/>}/>
 
                 <Route exact path="protection-de-la-tete-des-yeux-et-du-visage" element={<IndexTYV/>}/>
                 <Route exact path="protection-des-lunettes" element={<Lunettes/>}/>
@@ -53,10 +67,17 @@ function App() {
                 <Route element={<RequireToken/>}>
                     <Route exact path="Burreau" element={<Burreau/>} />
                     <Route exact path="addproduct" element={<AddProduct/>}/>
+
+                    {/*<Route element={<RequireAuth allowedRoles={[ROLES.DEV]} />}>*/}
                     <Route exact path="adduser" element={<AddUser/>} />
+                    {/*</Route>*/}
+
                     <Route path="forbidden" element={<Forbidden/>} />
                 </Route>
 
+                <Route element={<RequireEmail/>}>
+                    <Route exact path="changePassword" element={<ChangePswd/>}/>
+                </Route>
             </Routes>
         <Endbar/>
     </main>

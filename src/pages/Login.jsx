@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import useAuth from "../auth/useAuth.js";
 import axios from '../app/api/axios';
 
@@ -8,6 +8,8 @@ const Login = () => {
     const userRef = useRef();
     const errRef = useRef();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -32,16 +34,19 @@ const Login = () => {
                     withCredentials: true
                 }
             );
-            console.log(JSON.stringify(response?.data));
+            console.log(response?.data)
             const accessToken = response?.data?.accessToken;
-            setAuth({username, accessToken});
-            navigate("/Burreau");
+            const role = response?.data?.role;
+            setAuth({username, role, accessToken});
+            navigate(from, { replace: true });
         } catch (err) {
-            if (!err?.originalStatus) {
+            if (!err?.response) {
                 setErrMsg('No Server Response');
-            } else if (err.originalStatus === 400) {
+            } else if (err.response?.status === 400) {
                 setErrMsg('Wrong Username or Password');
-            } else if (err.originalStatus === 401) {
+            } else if (err.response?.status === 401) {
+                setErrMsg('Wrong Username or Password');
+            } else if (err.response?.status === 403) {
                 setErrMsg('Wrong Username or Password');
             } else {
                 setErrMsg('Login Failed');
@@ -49,6 +54,7 @@ const Login = () => {
             errRef.current.focus();
         }
     }
+    
     return (
         <div className="flex h-screen flex-col">
             <div className="mt-20 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -76,7 +82,7 @@ const Login = () => {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                 Password</label>
                             <div className="text-sm">
-                                <a href="/forgotPswd" className="font-semibold text-red-600 hover:text-red-300">
+                                <a href="/ForgotPswd" className="font-semibold text-red-600 hover:text-red-300">
                                     Forgot password?</a>
                             </div>
                         </div>

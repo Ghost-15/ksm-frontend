@@ -2,14 +2,10 @@ import { axiosPrivate } from "../app/api/axios";
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";
 import useAuth from "./useAuth";
-import {useLocation, useNavigate} from "react-router-dom";
 
 const useAxiosPrivate = () => {
     const refresh = useRefreshToken();
     const { auth } = useAuth();
-
-    const navigate = useNavigate();
-    const location = useLocation();
 
     useEffect(() => {
 
@@ -26,7 +22,7 @@ const useAxiosPrivate = () => {
             response => response,
             async (error) => {
                 const prevRequest = error?.config;
-                if ((error?.response?.status === 401 || error?.response?.status === 403) && !prevRequest?.sent) {
+                if ((error?.response?.status === 401) && !prevRequest?.sent) {
                     prevRequest.sent = true;
                     const newAccessToken = await refresh();
                     console.log("newAccessToken : "+newAccessToken)
@@ -41,7 +37,7 @@ const useAxiosPrivate = () => {
             axiosPrivate.interceptors.request.eject(requestIntercept);
             axiosPrivate.interceptors.response.eject(responseIntercept);
         }
-    }, [auth, location, navigate, refresh])
+    }, [auth, refresh])
 
     return axiosPrivate;
 }

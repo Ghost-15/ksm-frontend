@@ -1,40 +1,39 @@
 import {useRef, useState} from "react";
-import { useLocation, useNavigate} from "react-router-dom";
 import useAxiosPrivate from "../auth/useAxiosPrivate";
 
-export default function AddUser() {
+const AddUser = () => {
     const axiosPrivate = useAxiosPrivate();
     const errRef = useRef();
-    let navigate = useNavigate();
-    const location = useLocation();
 
-    const [user, setUser] = useState({
-        first_name: "",
-        last_name: "",
-        username: "",
-        password: "",
-        phone_number: "",
-        role: "",
-    });
+    const [first_name,setFirst_name]= useState('')
+    const [last_name, setLast_name]= useState('')
+    const [username, setUsername]= useState('')
+    const [password, setPassword]= useState('')
+    const [phone_number, setPhone_number]= useState('')
+    const [role, setRole]= useState('CEO')
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
 
-    const { first_name, last_name, username, password, phone_number, role} = user;
-
-    const onInputChange = (e) => {
-        setUser({ ...user, [e.target.name]: e.target.value });
-    };
-
     const onSubmit = async (e) => {
+        setErrMsg('')
+        setSuccMsg('')
         e.preventDefault();
         try {
-            await axiosPrivate.post("/backend/registration", user);
+            await axiosPrivate.post("/backend/register",
+                JSON.stringify({first_name, last_name, username, password, phone_number, role}),
+                {
+                    headers: {'Content-Type': 'application/json'},
+                    withCredentials: true
+                });
+            setFirst_name('')
+            setLast_name('')
+            setUsername('')
+            setPassword('')
+            setPhone_number('')
             setSuccMsg('Nouveau utilisateur ajouter');
         }catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 400) {
-                navigate('/login', { state: { from: location }, replace: true });
             } else if (err.response?.status === 401) {
                 setErrMsg('Unauthorized');
             } else if (err.response?.status === 403) {
@@ -65,7 +64,7 @@ export default function AddUser() {
                                 placeholder="  Enter your First name"
                                 name="first_name"
                                 value={first_name}
-                                onChange={(e) => onInputChange(e)}
+                                onChange={(e) => setFirst_name(e.target.value)}
                                 autoComplete="First name"
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
@@ -80,7 +79,7 @@ export default function AddUser() {
                                 placeholder="  Enter your Last name"
                                 name="last_name"
                                 value={last_name}
-                                onChange={(e) => onInputChange(e)}
+                                onChange={(e) => setLast_name(e.target.value)}
                                 autoComplete="Last name"
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
@@ -95,7 +94,7 @@ export default function AddUser() {
                                 placeholder="  Enter your username"
                                 name="username"
                                 value={username}
-                                onChange={(e) => onInputChange(e)}
+                                onChange={(e) => setUsername(e.target.value)}
                                 autoComplete="Username"
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
@@ -110,7 +109,7 @@ export default function AddUser() {
                                 placeholder="  Enter your Password"
                                 name="password"
                                 value={password}
-                                onChange={(e) => onInputChange(e)}
+                                onChange={(e) => setPassword(e.target.value)}
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
@@ -124,7 +123,7 @@ export default function AddUser() {
                                 placeholder="  Enter your Phone number"
                                 name="phone_number"
                                 value={phone_number}
-                                onChange={(e) => onInputChange(e)}
+                                onChange={(e) => setPhone_number(e.target.value)}
                                 autoComplete="Phone number"
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
@@ -133,16 +132,14 @@ export default function AddUser() {
 
                     <div>
                         <label htmlFor="Role" className="block text-sm font-medium leading-6 text-gray-900">Role</label>
-                        <select id="countries"
-                                value={role}
-                                onChange={(e) => onInputChange(e)}
-                                autoComplete="role"
+                        <select id="role"
+                                onChange={(e) => setRole(e.target.value)}
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option selected>Selectionner le Role</option>
-                            <option value="1">CEO</option>
-                            <option value="2">DEV</option>
-                            <option value="3">ADMIN</option>
+                            <option value={role}>CEO</option>
+                            <option value={role}>DEV</option>
+                            <option value={role}>ADMIN</option>
                         </select>
                     </div>
 
@@ -157,3 +154,4 @@ export default function AddUser() {
         </div>
     );
 }
+export default AddUser

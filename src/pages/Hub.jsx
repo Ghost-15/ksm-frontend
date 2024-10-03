@@ -7,8 +7,9 @@ function Hub() {
             <section className="h-screen mt-5 flex flex-col container mx-auto bg-[#E0E0E0] rounded-[59px] pt-16 px-10 md:items-center md:px-20 md:pt-[68px] md:flex-row md:justify-between gap-10 z-30 shadow-2xl">
                 <div className="flex flex-col items-start text-black md:pb-[68px] z-10  ">
                     <h1 className="text-4xl font-black  leading-[125%] sm:text-5xl md:text-[96px] md:leading-[125%]  ">
-                    <span className="relative after:w-[105%] after:h-full after:bg-white after:block after:absolute after:-z-10 after:top-0 after:-rotate-2">
-                        VENTE</span>
+                        <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-white relative inline-block">
+                            <span className="relative text-black">VENTE</span>
+                        </span>
                         <br/>SPECIALISE<br/>
                         <span className="relative after:w-[120%] after:h-full after:bg-primary after:block after:absolute after:-z-10 after:top-0 after:-rotate-2">
                         DES EPI</span>
