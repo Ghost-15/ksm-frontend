@@ -28,7 +28,7 @@ import ChangePswd from "./pages/ChangePswd.jsx";
 import ForgotPswd from "./pages/ForgotPswd.jsx";
 import Activation from "./pages/Activation.jsx";
 import Validation from "./pages/Validation.jsx";
-// import RequireAuth from "./auth/RequireAuth.js";
+import RequireAuth from "./auth/RequireAuth.js";
 
 function App() {
     // const ROLES = {
@@ -68,9 +68,9 @@ function App() {
                     <Route exact path="Burreau" element={<Burreau/>} />
                     <Route exact path="addproduct" element={<AddProduct/>}/>
 
-                    {/*<Route element={<RequireAuth allowedRoles={[ROLES.DEV]} />}>*/}
+                    <Route element={<RequireAuth allowedRoles={["CEO","DEV"]} />}>
                     <Route exact path="adduser" element={<AddUser/>} />
-                    {/*</Route>*/}
+                    </Route>
 
                     <Route path="forbidden" element={<Forbidden/>} />
                 </Route>
