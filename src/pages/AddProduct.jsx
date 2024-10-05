@@ -5,30 +5,31 @@ function AddProduct() {
     const axiosPrivate = useAxiosPrivate();
     const errRef = useRef();
 
-    const [product, setProduct] = useState({
-        name: "",
-        category: "",
-        description: "",
-        conditionnement: "",
-        coloris: "",
-        prix: "",
-        picture: ""
-    });
+    const [name, setName] = useState('')
+    const [category, setCategory] = useState('')
+    const [description, setDescription] = useState('')
+    const [conditionnement, setConditionnement] = useState('')
+    const [coloris, setColoris] = useState('')
+    const [prix, setPrix] = useState('')
+    const [picture, setPicture] = useState('')
+
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
-
-    const { name, category, description, conditionnement, coloris, prix, picture } = product;
-
-    const onInputChange = (e) => {
-        setProduct({ ...product, [e.target.name]: e.target.value });
-    };
 
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axiosPrivate.post("/SQL/addProduct", product);
-            setSuccMsg('Nouveau produit ajouter');
-            setProduct('')
+            const response = await axiosPrivate.post("/HUB/addProduct",
+                JSON.stringify({name, category, description, conditionnement, coloris, prix, picture}),
+                {
+                    headers: {'Content-Type': 'application/json'},
+                    withCredentials: true
+                });
+
+            if(response?.status === 200){
+
+                setSuccMsg('Nouveau produit ajouter');
+            }
         }catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
@@ -65,7 +66,7 @@ function AddProduct() {
                                     placeholder="Entre le nom"
                                     name="name"
                                     value={name}
-                                    onChange={(e) => onInputChange(e)}
+                                    onChange={(e) => setName(e.target.value)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
@@ -76,19 +77,19 @@ function AddProduct() {
                                 Selectionner la category</label>
                             <div className="mt-2">
                             <select id="category"
-                                    onChange={(e) => onInputChange(e)}
+                                    value={category}
+                                    onChange={(e) => setCategory(e.target.name)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                <option selected></option>
-                                <option value={category}>tyv</option>
-                                {/*<option value={category}>Protection de la tête, des yeux et du visage</option>*/}
-                                <option value={category}>Bouchons d&apos;oreilles et casques antibruit</option>
-                                <option value={category}>Protection respiratoire</option>
-                                <option value={category}>Gants de protection et de travail</option>
-                                <option value={category}>Chaussures de sécurité et de travail</option>
-                                <option value={category}>Vêtements de travail</option>
-                                <option value={category}>Protection antichute</option>
-                                <option value={category}>Compléter sa protection</option>
+                                <option selected>category</option>
+                                <option value="tyv">Protection de la tête, des yeux et du visage</option>
+                                <option value="auditive">Bouchons d&apos;oreilles et casques antibruit</option>
+                                <option value="respiratoire">Protection respiratoire</option>
+                                <option value="main">Gants de protection et de travail</option>
+                                <option value="pied">Chaussures de sécurité et de travail</option>
+                                <option value="corps">Vêtements de travail</option>
+                                <option value="antichute">Protection antichute</option>
+                                <option value="comp">Compléter sa protection</option>
                             </select>
                             </div>
                         </div>
@@ -102,7 +103,7 @@ function AddProduct() {
                                     placeholder="Entre la conditionnement"
                                     name="conditionnement"
                                     value={conditionnement}
-                                    onChange={(e) => onInputChange(e)}
+                                    onChange={(e) => setConditionnement(e.target.name)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
@@ -117,7 +118,7 @@ function AddProduct() {
                                     placeholder="Entre la coloris"
                                     name="coloris"
                                     value={coloris}
-                                    onChange={(e) => onInputChange(e)}
+                                    onChange={(e) => setColoris(e.target.name)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
@@ -132,7 +133,7 @@ function AddProduct() {
                                     placeholder="Entre le prix"
                                     name="prix"
                                     value={prix}
-                                    onChange={(e) => onInputChange(e)}
+                                    onChange={(e) => setPrix(e.target.name)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
@@ -143,8 +144,8 @@ function AddProduct() {
                                 Telecharger le fichier</label>
                             <div className="mt-2">
                                 <input type="file"
-                                       // value={picture}
-                                       onChange={(e) => picture(e.target.files[0])}
+                                       value={picture}
+                                       onChange={(e) => setPicture(e.target.files)}
                                        required
                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
@@ -159,7 +160,7 @@ function AddProduct() {
                                     placeholder="Entre la description"
                                     name="description"
                                     value={description}
-                                    onChange={(e) => onInputChange(e)}
+                                    onChange={(e) => setDescription(e.target.name)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>

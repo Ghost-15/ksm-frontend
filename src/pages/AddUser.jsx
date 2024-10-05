@@ -10,7 +10,7 @@ const AddUser = () => {
     const [username, setUsername]= useState('')
     const [password, setPassword]= useState('')
     const [phone_number, setPhone_number]= useState('')
-    const [role, setRole]= useState('CEO')
+    const [role, setRole]= useState('')
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
 
@@ -19,18 +19,21 @@ const AddUser = () => {
         setSuccMsg('')
         e.preventDefault();
         try {
-            await axiosPrivate.post("/backend/register",
+            const response = await axiosPrivate.post("/SQL/register",
                 JSON.stringify({first_name, last_name, username, password, phone_number, role}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
                 });
-            setFirst_name('')
-            setLast_name('')
-            setUsername('')
-            setPassword('')
-            setPhone_number('')
-            setSuccMsg('Nouveau utilisateur ajouter');
+
+            if(response?.status === 200){
+                setFirst_name('')
+                setLast_name('')
+                setUsername('')
+                setPassword('')
+                setPhone_number('')
+                setSuccMsg('Nouveau utilisateur ajouter');
+            }
         }catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
@@ -133,13 +136,14 @@ const AddUser = () => {
                     <div>
                         <label htmlFor="Role" className="block text-sm font-medium leading-6 text-gray-900">Role</label>
                         <select id="role"
+                                value={role}
                                 onChange={(e) => setRole(e.target.value)}
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                             <option selected>Selectionner le Role</option>
-                            <option value={role}>CEO</option>
-                            <option value={role}>DEV</option>
-                            <option value={role}>ADMIN</option>
+                            <option>CEO</option>
+                            <option>DEV</option>
+                            <option>ADMIN</option>
                         </select>
                     </div>
 
