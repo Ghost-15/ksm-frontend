@@ -3,11 +3,15 @@ import PropTypes from "prop-types";
 
 const AppContext = createContext({});
 
-export const AppProvider = ({ children }) => {
+export const AppProvider = ({children}) => {
     const [auth, setAuth] = useState({});
 
+    // if (auth?.accessToken === undefined) {
+    //     console.log("null")
+    // }
+
     return (
-        <AppContext.Provider value={{ auth, setAuth }}>
+        <AppContext.Provider value={{auth, setAuth}}>
             {children}
         </AppContext.Provider>
     )

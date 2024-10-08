@@ -1,13 +1,14 @@
+import {Link} from "react-router-dom";
 
 export default function Navbar() {
 
     return (
         <nav className="bg-white border-gray-200">
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
-                <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-black">
                         KongoSafeManagement Shop</span>
-                </a>
+                </Link>
                 <div id="mega-menu" className="justify-items-center hidden w-full md:flex md:w-auto md:order-1">
                     <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
 
@@ -23,29 +24,29 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/protection-de-la-tete-des-yeux-et-du-visage" className="text-white font-bold">
+                                            <Link to="/protection-de-la-tete-des-yeux-et-du-visage" className="text-white font-bold">
                                                 Protection de la tête,
                                                 <br/>des yeux et du visage
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Casque de securite
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/protection-des-lunettes" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="/protection-des-lunettes" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Lunettes
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/protection-de-la-tete-des-yeux-et-du-visage" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <Link to="/protection-de-la-tete-des-yeux-et-du-visage" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -53,29 +54,29 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/protection-auditive" className="text-white font-bold">
+                                            <Link to="/protection-auditive" className="text-white font-bold">
                                                 Bouchons d&apos;oreilles
                                                 <br/>et casques antibruit
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Bouchons d&apos;oreilles
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Arceaux antibruit
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/protection-auditive" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <Link to="/protection-auditive" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                             Autres
                                             <span className="sr-only">Explore our brands </span>
                                             <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                             </svg>
-                                        </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -84,29 +85,29 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/protection-respiratoire" className="text-white font-bold">
+                                            <Link to="/protection-respiratoire" className="text-white font-bold">
                                                 Protection
                                                 <br/>respiratoire
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Masques jetables
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Demi-masques
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/protection-respiratoire" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <Link to="/protection-respiratoire" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -114,29 +115,29 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/protection-des-mains" className="text-white font-bold">
+                                            <Link to="/protection-des-mains" className="text-white font-bold">
                                                 Gants de protection
                                                 <br/>et de travail
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Gants de manutention
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Gants anticoupures
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/protection-des-mains" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <Link to="/protection-des-mains" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -144,29 +145,29 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/protection-des-pieds" className="text-white font-bold">
+                                            <Link to="/protection-des-pieds" className="text-white font-bold">
                                                 Chaussures de sécurité
                                                 <br/>et de travail
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Chaussures de sécurité
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Chaussures de travail
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/protection-des-pieds" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <Link to="/protection-des-pieds" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -174,29 +175,29 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/protection-du-corps" className="text-white font-bold">
+                                            <Link to="/protection-du-corps" className="text-white font-bold">
                                                 Vêtements de
                                                 <br/>travail
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Tee-shirts et polos de travail
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Pulls et sweat-shirts de travail
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/protection-du-corps" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <Link to="/protection-du-corps" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -204,29 +205,29 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/protection-antichute-longes" className="text-white font-bold">
+                                            <Link to="/protection-antichute-longes" className="text-white font-bold">
                                                 Protection
                                                 <br/>antichute
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Kits travaux en hauteur
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Harnais de sécurité
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/protection-antichute-longes" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <Link to="/protection-antichute-longes" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -234,29 +235,29 @@ export default function Navbar() {
                                 <div className="p-4 pb-0 md:pb-4 text-white">
                                     <ul className="space-y-4">
                                         <li>
-                                            <a href="/completer-sa-protection" className="text-white font-bold">
+                                            <Link to="/completer-sa-protection" className="text-white font-bold">
                                                 Compléter sa
                                                 <br/>protection
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Lavage des mains
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="" className="text-gray-400 hover:text-[#99CCFF]">
+                                            <Link to="" className="text-gray-400 hover:text-[#99CCFF]">
                                                 Lavage des sols et des surfaces
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
-                                            <a href="/completer-sa-protection" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
+                                            <Link to="/completer-sa-protection" className="inline-flex items-center text-sm font-medium text-blue-400 hover:underline hover:text-blue-600">
                                                 Autres
                                                 <span className="sr-only">Explore our brands </span>
                                                 <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                                 </svg>
-                                            </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>

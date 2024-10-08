@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 
 function IndexTYV() {
     return (
@@ -5,30 +6,30 @@ function IndexTYV() {
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF]">Protection de la tête, des yeux et du visage</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
-                <a href="/protection-de-la-tete-des-yeux-et-du-visage">
+                <Link to="/protection-de-la-tete-des-yeux-et-du-visage">
                     <button type="button"
                             className="text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">
                         Produits phares
                     </button>
-                </a>
-                <a>
+                </Link>
+                <Link to="/protection-des-casques-de-securite">
                     <button type="button"
                             className="text-white bg-gray-900 border border-gray-900 hover:bg-blue-500 hover:border-blue-500 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">
                         Casque de securite
                     </button>
-                </a>
-                <a href="/protection-des-lunettes">
+                </Link>
+                <Link to="/protection-des-lunettes">
                     <button type="button"
                             className="text-white bg-gray-900 border border-gray-900 hover:bg-blue-500 hover:border-blue-500 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">
                         Lunettes
                     </button>
-                </a>
-                <a>
+                </Link>
+                <Link to="">
                     <button type="button"
                             className="text-white bg-gray-900 border border-gray-900 hover:bg-blue-500 hover:border-blue-500 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">
                         Masque
                     </button>
-                </a>
+                </Link>
             </div>
 
             <div className="mt-10 justify-items-center grid grid-cols-1 gap-4">

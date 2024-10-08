@@ -34,10 +34,10 @@ const Login = () => {
                     withCredentials: true
                 }
             );
-            console.log(response?.data)
             const accessToken = response?.data?.accessToken;
             const role = response?.data?.role;
             setAuth({username, role, accessToken});
+            // setAuth({username, password, role, accessToken});
             navigate(from, { replace: true });
         } catch (err) {
             if (!err?.response) {

@@ -29,13 +29,9 @@ import ForgotPswd from "./pages/ForgotPswd.jsx";
 import Activation from "./pages/Activation.jsx";
 import Validation from "./pages/Validation.jsx";
 import RequireAuth from "./auth/RequireAuth.js";
+import Casque from "./pages/protection_tyv/Casque.jsx";
 
 function App() {
-    // const ROLES = {
-    //     'CEO': "CEO",
-    //     'DEV': "DEV",
-    //     'ADMIN': "ADMIN"
-    // }
     useEffect(()=>{
         initFlowbite();
     }, []);
@@ -49,15 +45,33 @@ function App() {
                 <Route exact path="forgotPswd" element={<ForgotPswd/>}/>
                 <Route exact path="activation" element={<Activation/>}/>
 
+                {/*protection-de-la-tete-des-yeux-et-du-visage*/}
                 <Route exact path="protection-de-la-tete-des-yeux-et-du-visage" element={<IndexTYV/>}/>
+                <Route exact path="protection-des-casques-de-securite" element={<Casque/>}/>
                 <Route exact path="protection-des-lunettes" element={<Lunettes/>}/>
+
+                {/*protection-auditive*/}
                 <Route exact path="protection-auditive" element={<IndexBOCA/>}/>
+
+                {/*protection-respiratoire*/}
                 <Route exact path="protection-respiratoire" element={<IndexR/>}/>
+
+                {/*protection-des-mains*/}
                 <Route exact path="protection-des-mains" element={<IndexG/>}/>
+
+                {/*protection-des-pieds*/}
                 <Route exact path="protection-des-pieds" element={<IndexC/>}/>
+
+                {/*protection-du-corps*/}
                 <Route exact path="protection-du-corps" element={<IndexV/>}/>
+
+                {/*protection-antichute-longes*/}
                 <Route exact path="protection-antichute-longes" element={<IndexA/>}/>
+
+                {/*completer-sa-protection*/}
                 <Route exact path="completer-sa-protection" element={<IndexComp/>}/>
+
+
                 <Route exact path="detail-item" element={<DetailItem/>}/>
                 <Route exact path="pdf" element={<PDFViewer/>}/>
                 <Route exact path="contacter-nous" element={<Contact/>}/>
@@ -78,6 +92,7 @@ function App() {
                 <Route element={<RequireEmail/>}>
                     <Route exact path="changePassword" element={<ChangePswd/>}/>
                 </Route>
+
             </Routes>
         <Endbar/>
     </main>

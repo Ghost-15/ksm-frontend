@@ -11,23 +11,46 @@ function AddProduct() {
     const [conditionnement, setConditionnement] = useState('')
     const [coloris, setColoris] = useState('')
     const [prix, setPrix] = useState('')
-    const [picture, setPicture] = useState('')
+    const [file, setFile] = useState(null);
 
+    const [fileError, setFileError] = useState('')
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
-
+    const handleFileInput = (e) => {
+        if (file.size > 1024)
+            setFileError('File size cannot exceed more than 1MB');
+        else setFileError('');
+             setFile(e.target.files[0]);
+    };
     const onSubmit = async (e) => {
+        setErrMsg('')
+        setSuccMsg('')
         e.preventDefault();
+
+        const data = new FormData();
+        data.append('file', file);
+        data.append("name", name)
+        data.append("category", category)
+        data.append("description", description)
+        data.append("conditionnement", conditionnement)
+        data.append("coloris", coloris)
+        data.append("prix", prix)
+
         try {
-            const response = await axiosPrivate.post("/HUB/addProduct",
-                JSON.stringify({name, category, description, conditionnement, coloris, prix, picture}),
+            const response = await axiosPrivate.post("/HUB/addProduct", data,
                 {
-                    headers: {'Content-Type': 'application/json'},
+                    headers: {
+                        'content-type': 'multipart/form-data'
+                    },
                     withCredentials: true
-                });
+                })
 
             if(response?.status === 200){
-
+                setName('')
+                setConditionnement('')
+                setColoris('')
+                setPrix('')
+                setDescription('')
                 setSuccMsg('Nouveau produit ajouter');
             }
         }catch (err) {
@@ -74,18 +97,18 @@ function AddProduct() {
 
                         <div>
                             <label htmlFor="category" className="block text-sm font-medium leading-6 text-gray-900">
-                                Selectionner la category</label>
+                                Category</label>
                             <div className="mt-2">
                             <select id="category"
                                     value={category}
-                                    onChange={(e) => setCategory(e.target.name)}
+                                    onChange={(e) => setCategory(e.target.value)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                <option selected>category</option>
+                                <option selected>Selectionner la category</option>
                                 <option value="tyv">Protection de la tête, des yeux et du visage</option>
                                 <option value="auditive">Bouchons d&apos;oreilles et casques antibruit</option>
                                 <option value="respiratoire">Protection respiratoire</option>
-                                <option value="main">Gants de protection et de travail</option>
+                                <option value="main">Gants de protection et de dtravail</option>
                                 <option value="pied">Chaussures de sécurité et de travail</option>
                                 <option value="corps">Vêtements de travail</option>
                                 <option value="antichute">Protection antichute</option>
@@ -103,7 +126,7 @@ function AddProduct() {
                                     placeholder="Entre la conditionnement"
                                     name="conditionnement"
                                     value={conditionnement}
-                                    onChange={(e) => setConditionnement(e.target.name)}
+                                    onChange={(e) => setConditionnement(e.target.value)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
@@ -118,7 +141,7 @@ function AddProduct() {
                                     placeholder="Entre la coloris"
                                     name="coloris"
                                     value={coloris}
-                                    onChange={(e) => setColoris(e.target.name)}
+                                    onChange={(e) => setColoris(e.target.value)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
@@ -133,7 +156,7 @@ function AddProduct() {
                                     placeholder="Entre le prix"
                                     name="prix"
                                     value={prix}
-                                    onChange={(e) => setPrix(e.target.name)}
+                                    onChange={(e) => setPrix(e.target.value)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
@@ -144,11 +167,12 @@ function AddProduct() {
                                 Telecharger le fichier</label>
                             <div className="mt-2">
                                 <input type="file"
-                                       value={picture}
-                                       onChange={(e) => setPicture(e.target.files)}
+                                       // onChange={(e) => setFile(e.target.files[0])}
+                                       onChange={handleFileInput}
                                        required
                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                             </div>
+                            <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{fileError}</p>
                         </div>
                     </div>
 
@@ -160,7 +184,7 @@ function AddProduct() {
                                     placeholder="Entre la description"
                                     name="description"
                                     value={description}
-                                    onChange={(e) => setDescription(e.target.name)}
+                                    onChange={(e) => setDescription(e.target.value)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
