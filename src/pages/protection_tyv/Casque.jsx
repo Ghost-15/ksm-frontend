@@ -17,7 +17,7 @@ function Casque () {
     }, [products])
     const getAllCasque = async () => {
         try {
-            const result = await axios.get("/HUB/getByCategorie/tyv");
+            const result = await axios.get("/HUB/getAllProducts");
             setProducts(result.data);
             console.log(result.data)
         } catch (err) {
@@ -64,27 +64,25 @@ function Casque () {
                 <div className="flex flex-wrap">
                     <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
                     <div className="grid grid-cols-3 gap-4">
-                        {products?.length ? (
-                                <ul>
+                        <ul>
                             {products.map((product, index) =>  (
-                            <Link to={product?.id} key={index}>
+                        <Link to={product?.id} key={index}>
                               <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
                                 <div className="p-4">
-                                    <img src={product?.picture} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
+                                    <img src={product.picture_url} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
                                 </div>
                             <div className="p-6">
                                 <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    {product?.name}</h5>
+                                    {product.name}</h5>
                                 <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900">
-                                        {product?.prix} FCFA HT</span>
+                                        {product.prix} FCFA HT</span>
                                     </div>
                                 </div>
                             </div>
                         </Link>
-                        ))}
+                            ))}
                     </ul>
-                        ) : <p>Une erreur est survenu</p>}
                     </div>
                 </div>
             </div>

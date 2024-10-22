@@ -41,7 +41,7 @@ function IndexTYV() {
                         <a href="/detail-item">
                             <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
                                 <div className="p-4">
-                                    <img src="/produits/ptv/casqueKask.jpg" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
+                                    <img src="https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
                                 </div>
                                 <div className="p-6">
                                     <h5 className="text-l font-semibold tracking-tight text-gray-900">

@@ -11,45 +11,29 @@ function AddProduct() {
     const [conditionnement, setConditionnement] = useState('')
     const [coloris, setColoris] = useState('')
     const [prix, setPrix] = useState('')
-    const [file, setFile] = useState(null);
+    const [picture_url, setPicture_url] = useState('')
 
-    const [fileError, setFileError] = useState('')
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
-    const handleFileInput = (e) => {
-        if (file.size > 1024)
-            setFileError('File size cannot exceed more than 1MB');
-        else setFileError('');
-             setFile(e.target.files[0]);
-    };
+
     const onSubmit = async (e) => {
         setErrMsg('')
         setSuccMsg('')
         e.preventDefault();
-
-        const data = new FormData();
-        data.append('file', file);
-        data.append("name", name)
-        data.append("category", category)
-        data.append("description", description)
-        data.append("conditionnement", conditionnement)
-        data.append("coloris", coloris)
-        data.append("prix", prix)
-
         try {
-            const response = await axiosPrivate.post("/HUB/addProduct", data,
+            const response = await axiosPrivate.post("/HUB/addProduct",
+                JSON.stringify({name, category, description, conditionnement, coloris, prix, picture_url}),
                 {
-                    headers: {
-                        'content-type': 'multipart/form-data'
-                    },
+                    headers: {'Content-Type': 'application/json'},
                     withCredentials: true
-                })
+                });
 
             if(response?.status === 200){
                 setName('')
                 setConditionnement('')
                 setColoris('')
                 setPrix('')
+                setPicture_url('')
                 setDescription('')
                 setSuccMsg('Nouveau produit ajouter');
             }
@@ -163,16 +147,17 @@ function AddProduct() {
                         </div>
 
                         <div>
-                            <label htmlFor="file_input" className="block text-sm font-medium leading-6 text-gray-900">
-                                Telecharger le fichier</label>
+                            <label htmlFor="picture_url" className="block text-sm font-medium leading-6 text-gray-900">
+                                Image url</label>
                             <div className="mt-2">
-                                <input type="file"
-                                       // onChange={(e) => setFile(e.target.files[0])}
-                                       onChange={handleFileInput}
-                                       required
-                                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
-                            </div>
-                            <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{fileError}</p>
+                                <input
+                                    type={"text"}
+                                    placeholder="Entre l'url de l'image"
+                                    name="picture_url"
+                                    value={picture_url}
+                                    onChange={(e) => setPicture_url(e.target.value)}
+                                    required
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>                            </div>
                         </div>
                     </div>
 
