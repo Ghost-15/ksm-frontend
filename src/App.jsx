@@ -7,7 +7,6 @@ import Hub from "./pages/Hub.jsx";
 import IndexTYV from "./pages/protection_tyv/IndexTYV.jsx";
 import Missing from "./Missing.jsx";
 import DetailItem from "./pages/DetailItem.jsx";
-import PDFViewer from "./pages/PDFViewer.jsx";
 import Contact from "./pages/Contact.jsx";
 import Lunettes from "./pages/protection_tyv/Lunettes.jsx";
 import IndexBOCA from "./pages/protection_auditive/IndexBOCA.jsx";
@@ -72,8 +71,7 @@ function App() {
                 <Route exact path="completer-sa-protection" element={<IndexComp/>}/>
 
 
-                <Route exact path="detail-item" element={<DetailItem/>}/>
-                <Route exact path="pdf" element={<PDFViewer/>}/>
+                <Route exact path="detail-item/:productName" element={<DetailItem/>}/>
                 <Route exact path="contacter-nous" element={<Contact/>}/>
                 <Route path="*" element={<Missing/>} />
 

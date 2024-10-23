@@ -12,6 +12,7 @@ function AddProduct() {
     const [coloris, setColoris] = useState('')
     const [prix, setPrix] = useState('')
     const [picture_url, setPicture_url] = useState('')
+    const [pdf_url, setPdf_url] = useState('')
 
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
@@ -22,7 +23,7 @@ function AddProduct() {
         e.preventDefault();
         try {
             const response = await axiosPrivate.post("/HUB/addProduct",
-                JSON.stringify({name, category, description, conditionnement, coloris, prix, picture_url}),
+                JSON.stringify({name, category, description, conditionnement, coloris, prix, picture_url, pdf_url}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
@@ -34,6 +35,7 @@ function AddProduct() {
                 setColoris('')
                 setPrix('')
                 setPicture_url('')
+                setPdf_url('')
                 setDescription('')
                 setSuccMsg('Nouveau produit ajouter');
             }
@@ -156,6 +158,20 @@ function AddProduct() {
                                     name="picture_url"
                                     value={picture_url}
                                     onChange={(e) => setPicture_url(e.target.value)}
+                                    required
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>                            </div>
+                        </div>
+
+                        <div>
+                            <label htmlFor="pdf_url" className="block text-sm font-medium leading-6 text-gray-900">
+                                Pdf url</label>
+                            <div className="mt-2">
+                                <input
+                                    type={"text"}
+                                    placeholder="Entre l'url de l'image"
+                                    name="pdf_url"
+                                    value={pdf_url}
+                                    onChange={(e) => setPdf_url(e.target.value)}
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>                            </div>
                         </div>

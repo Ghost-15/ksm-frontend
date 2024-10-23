@@ -66,7 +66,7 @@ function Casque () {
                     <div className="grid grid-cols-3 gap-4">
                         <ul>
                             {products.map((product, index) =>  (
-                        <Link to={product?.id} key={index}>
+                        <Link to={`/detail-item/${product.name}`} key={index}>
                               <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
                                 <div className="p-4">
                                     <img src={product.picture_url} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
