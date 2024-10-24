@@ -29,6 +29,7 @@ import Activation from "./pages/Activation.jsx";
 import Validation from "./pages/Validation.jsx";
 import RequireAuth from "./auth/RequireAuth.js";
 import Casque from "./pages/protection_tyv/Casque.jsx";
+import Cart from "./compoments/Cart.jsx";
 
 function App() {
     useEffect(()=>{
@@ -39,6 +40,7 @@ function App() {
         <Navbar/>
             <Routes>
                 <Route exact path="/" element={<Hub/>}/>
+                <Route exact path="cart" element={<Cart />} />
                 <Route exact path="Login" element={<Login/>} />
                 <Route exact path="validation" element={<Validation/>}/>
                 <Route exact path="forgotPswd" element={<ForgotPswd/>}/>

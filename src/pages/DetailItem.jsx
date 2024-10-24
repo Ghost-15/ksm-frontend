@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import axios from '../app/api/axios';
+import AppContext from "../auth/AppProvider.js";
 
 const DetailItem = () => {
 
@@ -15,7 +16,11 @@ const DetailItem = () => {
     })
     const {name, description, conditionnement, coloris, prix, picture_url, pdf_url} = item;
     const { productName } = useParams();
+    const { cartItems, addToCart , removeFromCart} = useContext(AppContext)
 
+    const handleRemoveFromCart = (product) => {
+        removeFromCart(product);
+    };
     useEffect( () => {
         getProduct();
     }, []);
@@ -93,17 +98,42 @@ const DetailItem = () => {
                             </div>
 
                             <div className="flex justify-end">
-                            <div className="grid grid-cols-3 gap-2">
-                                 <div className='grid grid-cols-3 gap-2 justify-center items-center'>
-                                    <button className='bg-gray-100 font-bold text-xl rounded-xl flex justify-center items-center'>-</button>
-                                    <span className='bg-gray-200 font-bold text-xl rounded-xl flex justify-center items-center'></span>
-                                    <button className='bg-gray-100 font-bold text-xl rounded-xl flex justify-center items-center'>+</button>
-                                </div>
-                            <button className='bg-slate-900 text-white px-7 py-3 rounded-xl shadow-2xl'>
-                                Ajouter au panier
-                            </button>
+                            <div className="grid grid-cols-2 gap-2">
+                                {!cartItems.find(product => product.id === item.id) ? (
+                                        <button className='px-4 py-2 bg-gray-800 text-white text-lg font-bold rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'
+                                                onClick={() => {
+                                                    addToCart(item)}
+                                                }>
+                                            Ajouter au panier
+                                        </button>
+                                    ) : (
+                                        <div className="flex items-center justify-center gap-4">
+                                            <button
+                                                className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                                                onClick={() => {
+                                                    addToCart(item)
+                                                }}>
+                                                +
+                                            </button>
+                                            <p className='text-gray-600'>
+                                                {cartItems.find(product => product.id === item.id).quantity}
+                                            </p>
+                                            <button className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                                                onClick={() => {
+                                                    const cartItem = cartItems.find((product) => product.id === item.id);
+                                                    if (cartItem.quantity === 1) {
+                                                        handleRemoveFromCart(item);
+                                                    } else {
+                                                        removeFromCart(item);
+                                                    }
+                                                }}>
+                                                -
+                                            </button>
+                                        </div>
+                                    )
+                                }
 
-                            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            <button className="px-4 py-2 bg-blue-700 text-white text-lg font-bold rounded hover:bg-blue-500 focus:outline-none">
                                 Contacter nous
                             </button>
                         </div>

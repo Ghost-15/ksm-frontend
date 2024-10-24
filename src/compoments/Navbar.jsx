@@ -1,6 +1,10 @@
 import {Link} from "react-router-dom";
+import AppContext from "../auth/AppProvider.js";
+import {useContext} from "react";
 
 export default function Navbar() {
+
+    const { cartItems } = useContext(AppContext);
 
     return (
         <nav className="bg-white border-gray-200">
@@ -261,9 +265,7 @@ export default function Navbar() {
                                         </li>
                                     </ul>
                                 </div>
-
                             </div>
-
                         </li>
 
 
@@ -275,11 +277,13 @@ export default function Navbar() {
 
 
                         <li>
-                            <button className='flex items-center justify-between w-full py-2 px-3 bg-gray-100 rounded-full relative'>
-                                <img src="/iconCart.png" alt="" className='w-6'/>
-                                <span className='absolute top-2/3 right-1/2 bg-red-500 text-white text-sm
-                            w-5 h-5 rounded-full flex justify-center items-center'>0</span>
-                            </button>
+                            <Link to="cart">
+                                <button className='flex items-center justify-between w-full py-2 px-3 bg-gray-100 rounded-full relative'>
+                                    <img src="/iconCart.png" alt="" className='w-6'/>
+                                    <span className='absolute top-2/3 right-1/2 bg-red-500 text-white text-sm w-5 h-5 rounded-full flex justify-center items-center'>
+                                        {cartItems.length}</span>
+                                </button>
+                            </Link>
                         </li>
                     </ul>
 

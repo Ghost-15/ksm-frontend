@@ -2,9 +2,9 @@
 function Validation() {
     return (
         <main className="h-screen">
-            <div className="mt-20 sm:mx-auto sm:w-full sm:max-w-sm">
-                <h2 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Validation de votre commande</h2>
+            <div className="mt-20">
+                <h1 className="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                    Validation de votre commande</h1>
             </div>
             <form className="mt-10 max-w-md mx-auto">
                 <div className="relative z-0 w-full mb-5 group">

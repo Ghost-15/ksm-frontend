@@ -29,7 +29,7 @@ function Casque () {
     };
 
     return (
-        <div>
+        <main className="h-screen">
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection de la tête, des yeux et du visage</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
@@ -88,7 +88,7 @@ function Casque () {
             </div>
 
             <div className="mt-20"/>
-        </div>
+        </main>
     );
 }
 
