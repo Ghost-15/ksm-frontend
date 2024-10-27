@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import axios from '../app/api/axios';
 import AppContext from "../auth/AppProvider.js";
@@ -31,11 +31,11 @@ const DetailItem = () => {
 
     return (
         <div className="h-full flex items-center justify-center">
-            <div className='max-w-[1240px] mx-auto grid gap-4 mb-10'>
+            <div className='max-w-[1240px] mx-auto grid grid-cols-2 gap-4 mb-10'>
                 <div className='flex flex-col justify-center'>
                     <div className="grid gap-4">
                             <div>
-                                <img className="w-full rounded-lg"
+                                <img className="h-auto max-w-xl"
                                      src={picture_url} alt=""/>
                             </div>
                                 {/*<div className="grid grid-cols-5 gap-4">*/}
@@ -69,14 +69,16 @@ const DetailItem = () => {
                         </div>
 
                         <div className='flex flex-col justify-center'>
-                            <h1 className='md:text-4xl sm:text-3xl text-[#3399FF] text-2xl font-bold py-2'>
+                            <h1 className='md:text-5xl sm:text-4xl text-[#3399FF] text-2xl font-bold py-2'>
                                 {name}
                             </h1>
-                            <p>
+                            <p className="mt-2">
+                                <h1 className='text-2xl font-bold py-2'>
+                                    Descriptif du fabricant : </h1>
                                 {description}
                             </p>
 
-                            <a href={pdf_url} className="mt-5 underline underline-offset-8">Normes & Documentations</a>
+                            <a href={pdf_url} className="mt-5 text-gray-600 underline underline-offset-8">Normes & Documentations</a>
 
                             <h1 className="mt-5">
                                 Conditionnement<br/>
@@ -108,16 +110,6 @@ const DetailItem = () => {
                                         </button>
                                     ) : (
                                         <div className="flex items-center justify-center gap-4">
-                                            <button
-                                                className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                                                onClick={() => {
-                                                    addToCart(item)
-                                                }}>
-                                                +
-                                            </button>
-                                            <p className='text-gray-600'>
-                                                {cartItems.find(product => product.id === item.id).quantity}
-                                            </p>
                                             <button className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
                                                 onClick={() => {
                                                     const cartItem = cartItems.find((product) => product.id === item.id);
@@ -129,13 +121,23 @@ const DetailItem = () => {
                                                 }}>
                                                 -
                                             </button>
+                                            <p className='text-gray-600'>
+                                                {cartItems.find(product => product.id === item.id).quantity}
+                                            </p>
+                                            <button className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+                                                onClick={() => {
+                                                addToCart(item)
+                                            }}>
+                                                +
+                                            </button>
                                         </div>
                                     )
                                 }
-
-                            <button className="px-4 py-2 bg-blue-700 text-white text-lg font-bold rounded hover:bg-blue-500 focus:outline-none">
-                                Contacter nous
-                            </button>
+                            <Link to="/contacter-nous">
+                                <button className="px-4 py-2 bg-blue-700 text-white text-lg font-bold rounded hover:bg-blue-500 focus:outline-none">
+                                    Contacter nous
+                                </button>
+                            </Link>
                         </div>
                     </div>
 

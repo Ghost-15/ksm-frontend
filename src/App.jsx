@@ -29,7 +29,7 @@ import Activation from "./pages/Activation.jsx";
 import Validation from "./pages/Validation.jsx";
 import RequireAuth from "./auth/RequireAuth.js";
 import Casque from "./pages/protection_tyv/Casque.jsx";
-import Cart from "./compoments/Cart.jsx";
+import Cart from "./pages/Cart.jsx";
 
 function App() {
     useEffect(()=>{

@@ -1,7 +1,7 @@
 
 function IndexComp() {
     return (
-        <div>
+        <main className="h-screen">
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Compléter sa protection</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
@@ -30,7 +30,7 @@ function IndexComp() {
             </div>
 
             <div className="mt-20"/>
-        </div>
+        </main>
     );
 }
 

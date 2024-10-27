@@ -1,7 +1,7 @@
 
 function IndexG() {
     return (
-        <div>
+        <main className="h-screen">
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Gants de protection et de travail</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
@@ -68,7 +68,7 @@ function IndexG() {
             </div>
 
             <div className="mt-20"/>
-        </div>
+        </main>
     );
 }
 

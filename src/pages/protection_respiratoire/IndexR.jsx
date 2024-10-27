@@ -1,7 +1,7 @@
 
 function IndexR() {
     return (
-        <div className="">
+        <main className="h-screen">
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection respiratoire</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
@@ -51,7 +51,7 @@ function IndexR() {
 
 
             <div className="mt-20"/>
-        </div>
+        </main>
     );
 }
 
