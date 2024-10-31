@@ -22,14 +22,13 @@ import Forbidden from "./Forbidden.jsx";
 import AddUser from "./pages/AddUser.jsx";
 import AddProduct from "./pages/AddProduct.jsx";
 import RequireToken from "./auth/RequireToken.js";
-import RequireEmail from "./auth/RequireEmail.js";
 import ChangePswd from "./pages/ChangePswd.jsx";
 import ForgotPswd from "./pages/ForgotPswd.jsx";
-import Activation from "./pages/Activation.jsx";
 import Validation from "./pages/Validation.jsx";
 import RequireAuth from "./auth/RequireAuth.js";
 import Casque from "./pages/protection_tyv/Casque.jsx";
 import Cart from "./pages/Cart.jsx";
+import LinkPswd from "./pages/LinkPswd.jsx";
 
 function App() {
     useEffect(()=>{
@@ -44,7 +43,7 @@ function App() {
                 <Route exact path="Login" element={<Login/>} />
                 <Route exact path="validation" element={<Validation/>}/>
                 <Route exact path="forgotPswd" element={<ForgotPswd/>}/>
-                <Route exact path="activation" element={<Activation/>}/>
+                <Route exact path="/:code" element={<LinkPswd/>}/>
 
                 {/*protection-de-la-tete-des-yeux-et-du-visage*/}
                 <Route exact path="protection-de-la-tete-des-yeux-et-du-visage" element={<IndexTYV/>}/>
@@ -75,7 +74,7 @@ function App() {
 
                 <Route exact path="detail-item/:productName" element={<DetailItem/>}/>
                 <Route exact path="contacter-nous" element={<Contact/>}/>
-                <Route path="*" element={<Missing/>} />
+                <Route exact path="*" element={<Missing/>} />
 
 
                 <Route element={<RequireToken/>}>
@@ -86,12 +85,11 @@ function App() {
                     <Route exact path="adduser" element={<AddUser/>} />
                     </Route>
 
+                    <Route exact path="changePassword" element={<ChangePswd/>}/>
+
                     <Route path="forbidden" element={<Forbidden/>} />
                 </Route>
 
-                <Route element={<RequireEmail/>}>
-                    <Route exact path="changePassword" element={<ChangePswd/>}/>
-                </Route>
 
             </Routes>
         <Endbar/>

@@ -43,46 +43,49 @@ function ChangePswd() {
     };
 
     return (
-        <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="flex h-screen flex-col">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Change Password</h2>
+                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-400">
+                    Change Password</h2>
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
                 <form onSubmit={(e) => onSubmit(e)} className="space-y-6">
                     <div>
-                        <label htmlFor="New Password" className="block text-sm font-medium leading-6 text-gray-900">New Password</label>
+                        <label htmlFor="New Password" className="block text-sm font-medium leading-6 text-gray-900">
+                            Nouveau mot de passe</label>
                         <div className="mt-2">
                             <input
                                 type={"text"}
-                                placeholder="  Enter your New Password"
+                                placeholder="Entrer le nouveau mot de passe"
                                 name="newPswd"
                                 value={newPswd}
                                 onChange={(e) => onInputChange(e)}
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
                     </div>
 
                     <div>
-                        <label htmlFor="Comfirmation Password" className="block text-sm font-medium leading-6 text-gray-900">Comfirmation Password</label>
+                        <label htmlFor="Comfirmation Password" className="block text-sm font-medium leading-6 text-gray-900">
+                            Confirmation</label>
                         <div className="mt-2">
                             <input
                                 type={"text"}
-                                placeholder="  Enter your Comfirmation Password"
+                                placeholder="Comfirmer le nouveau mot de passe"
                                 name="comfirmPswd"
                                 value={comfirmPswd}
                                 onChange={(e) => onInputChange(e)}
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
                     </div>
 
                     <div>
                         <button type="submit"
                                 className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Submit
+                            Envoyer
                         </button>
                     </div>
                 </form>

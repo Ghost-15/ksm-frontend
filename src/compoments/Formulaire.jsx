@@ -109,7 +109,7 @@ function Formulaire() {
                 </div>
 
                 <button id="Submit" type="submit" className="py-2.5 px-5 me-2 rounded-lg focus:z-10 text-white bg-blue-600 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 inline-flex items-center">
-                    Envoye
+                    Envoyer
                 </button>
 
                 <button id="Loading" className="py-2.5 px-5 me-2 rounded-lg focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700 inline-flex items-center" disabled>

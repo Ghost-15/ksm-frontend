@@ -9,23 +9,23 @@ export default function ForgotPswd() {
     const [succMsg, setSuccMsg] = useState('');
 
     const onSubmit = async (e) => {
+        setErrMsg('')
+        setSuccMsg('')
         e.preventDefault();
         try {
-            await axios.post("/backend/forgotPassword",
+            await axios.post("/backend/linkToNewPswd",
                 JSON.stringify({ username }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 }
             );
-            setSuccMsg('We have sent you an Email, Please check your Mailbox');
-        }catch (err) {
+            setSuccMsg('Nous vous avons envoyé un e-mail, veuillez vérifier votre boîte mail');
+        } catch (err) {
             if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 403) {
-                setErrMsg('Wrong Username or Password');
+                setErrMsg('Désolé... Mauvais e-mail');
             } else {
-                setErrMsg('Sorry... Wrong Email');
+                setErrMsg('No Server Response');
             }
             errRef.current.focus();
         }
@@ -34,17 +34,19 @@ export default function ForgotPswd() {
     return (
         <div className="flex h-screen flex-col">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Forgot Password</h2>
+                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-400">
+                    Mot de passe oublie?</h2>
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form onSubmit={(e) => onSubmit(e)} className="space-y-6">
                     <div>
-                        <label htmlFor="Email" className="block text-sm font-medium leading-6 text-gray-900">A link to reset your password will be sent to your Mailbox.</label>
+                        <label htmlFor="Email" className="block text-sm font-medium leading-6 text-gray-900">
+                            Un lien pour réinitialiser votre mot de passe sera envoyé sur votre boîte mail.</label>
                         <div className="mt-2">
                             <input
-                                type={"text"}
-                                placeholder="  Enter your Email"
+                                type={"email"}
+                                placeholder="Entrer votre Email"
                                 name="username"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
@@ -56,7 +58,7 @@ export default function ForgotPswd() {
                     <div>
                         <button type="submit"
                                 className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Submit
+                            Envoyer
                         </button>
                     </div>
                     <p ref={errRef} className="text-green-600 text-center" aria-live="assertive">{succMsg}</p>

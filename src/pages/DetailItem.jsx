@@ -30,10 +30,11 @@ const DetailItem = () => {
     };
 
     return (
-        <div className="h-full flex items-center justify-center">
-            <div className='max-w-[1240px] mx-auto grid grid-cols-2 gap-4 mb-10'>
+        <div className="h-screen flex items-center justify-center">
+            {item.length > 0 ? (
+                <div className='max-w-[1240px] mx-auto grid grid-cols-2 gap-4 mb-10'>
                 <div className='flex flex-col justify-center'>
-                    <div className="grid gap-4">
+                        <div className="grid gap-4">
                             <div>
                                 <img className="h-auto max-w-xl"
                                      src={picture_url} alt=""/>
@@ -143,6 +144,10 @@ const DetailItem = () => {
 
                 </div>
             </div>
+            ) : (
+                <h1 className="text-center text-xl font-bold leading-9 tracking-tight text-red-600">
+                    La page que vous cherchez n&apos;existe pas.</h1>
+            )}
         </div>
     );
 }
