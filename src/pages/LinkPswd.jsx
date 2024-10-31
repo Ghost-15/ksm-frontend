@@ -27,7 +27,7 @@ function LinkPswd() {
         try {
             const result = await axios.get(`/backend/confirm/${code}`);
             console.log(result.data)
-            setPhare(result.data);
+            setPhare(result?.data);
         } catch (err){
             if (!err?.response) {
                 setErrMsg("La page que vous cherchez n'existe pas");
@@ -69,18 +69,17 @@ function LinkPswd() {
     };
 
     return (
-        <div className="h-screen flex items-center justify-center">
+        <div className="h-screen justify-items-center">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <p ref={errRef} className="text-green-600 text-center" aria-live="assertive">{succMsg}</p>
             </div>
-            {phare.length > 0 ? (
+            {phare != null ? (
                 <form onSubmit={(e) => onSubmit(e)} className="space-y-6">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-400">
-                            Réinitialisation mot de passe</h2>
+                            Réinitialisation du mot de passe</h2>
                     </div>
-                    {userId}
-                    {message}
+
                     <div>
                         <label htmlFor="New Password" className="block text-sm font-medium leading-6 text-gray-900">
                             Nouveau mot de passe</label>
@@ -98,7 +97,7 @@ function LinkPswd() {
 
                     <div>
                         <label htmlFor="Comfirmation Password" className="block text-sm font-medium leading-6 text-gray-900">
-                            Confirmation</label>
+                            Confirmation du mot de passe</label>
                         <div className="mt-2">
                             <input
                                 type={"text"}

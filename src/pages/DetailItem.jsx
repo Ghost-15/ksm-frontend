@@ -26,12 +26,13 @@ const DetailItem = () => {
     }, []);
     const getProduct = async () => {
         const result = await axios.get(`/HUB/getProduct/${productName}`);
+        console.log(result.data)
         setItem(result.data);
     };
 
     return (
         <div className="h-screen flex items-center justify-center">
-            {item.length > 0 ? (
+            {item != null ? (
                 <div className='max-w-[1240px] mx-auto grid grid-cols-2 gap-4 mb-10'>
                 <div className='flex flex-col justify-center'>
                         <div className="grid gap-4">
