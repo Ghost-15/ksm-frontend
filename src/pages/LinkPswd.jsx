@@ -1,21 +1,22 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useRef, useState} from "react";
 import axios from "../app/api/axios.js";
 
 function LinkPswd() {
 
+    let navigate = useNavigate();
     const errRef = useRef();
 
     const [phare, setPhare] = useState({
-            userId: "",
-            message: ""
+        username: "",
+        message: ""
     });
-    const [newPswd, setNewPswd] = useState("");
-    const [comfirmPswd, setComfirmPswd] = useState("");
+    const [newPswd, setNewPswd] = useState('');
+    const [comfirmPswd, setComfirmPswd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
 
-    const {userId, message} = phare;
+    const {username, message} = phare;
     const { code } = useParams();
 
     useEffect( () => {
@@ -45,7 +46,7 @@ function LinkPswd() {
         e.preventDefault();
         try {
             const reponse = await axios.post("/backend/changePswdLink",
-                JSON.stringify({userId, newPswd, comfirmPswd}),
+                JSON.stringify({username, newPswd, comfirmPswd}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
@@ -54,7 +55,10 @@ function LinkPswd() {
             if(reponse?.status === 200){
                 setNewPswd('')
                 setComfirmPswd('')
+                setPhare('');
+                console.log("setPhare : " +setPhare)
                 setSuccMsg('Votre mot de passe a ete modifier');
+                navigate("/Burreau");
             }
         } catch (err) {
             if (!err?.response) {
@@ -89,7 +93,7 @@ function LinkPswd() {
                                 placeholder="Entrer le nouveau mot de passe"
                                 name="newPswd"
                                 value={newPswd}
-                                onChange={(e) => setNewPswd(e)}
+                                onChange={(e) => setNewPswd(e.target.value)}
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
@@ -104,7 +108,7 @@ function LinkPswd() {
                                 placeholder="Comfirmer le nouveau mot de passe"
                                 name="comfirmPswd"
                                 value={comfirmPswd}
-                                onChange={(e) => setComfirmPswd(e)}
+                                onChange={(e) => setComfirmPswd(e.target.value)}
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
@@ -116,6 +120,7 @@ function LinkPswd() {
                             Envoyer
                         </button>
                     </div>
+                    <p ref={errRef} className="text-green-600 text-center" aria-live="assertive">{succMsg}</p>
                 </form>
             )
                 : (

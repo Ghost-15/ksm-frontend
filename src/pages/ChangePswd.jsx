@@ -5,8 +5,9 @@ import useAuth from "../auth/useAuth";
 import AppContext from "../auth/AppProvider";
 
 function ChangePswd() {
-    const errRef = useRef();
+
     let navigate = useNavigate();
+    const errRef = useRef();
     const { auth } = useAuth();
     const { setAuth } = useContext(AppContext);
 

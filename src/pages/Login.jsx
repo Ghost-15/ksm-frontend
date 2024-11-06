@@ -64,11 +64,12 @@ const Login = () => {
                 <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="Username" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                        <label htmlFor="Username" className="block text-sm font-medium leading-6 text-gray-900">
+                            Email</label>
                         <div className="mt-2">
                             <input id="username"
                                    name="username"
-                                   type="username"
+                                   type="email"
                                    ref={userRef}
                                    value={username}
                                    onChange={(e) => setUsername(e.target.value)}
@@ -80,7 +81,7 @@ const Login = () => {
                     <div>
                         <div className="flex items-center justify-between">
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                                Password</label>
+                                Mot de passe</label>
                             <div className="text-sm">
                                 <a href="/ForgotPswd" className="font-semibold text-red-600 hover:text-red-300">
                                     Mot de passe oublie?</a>

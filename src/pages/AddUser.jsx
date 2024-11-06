@@ -8,7 +8,6 @@ const AddUser = () => {
     const [first_name,setFirst_name]= useState('')
     const [last_name, setLast_name]= useState('')
     const [username, setUsername]= useState('')
-    const [password, setPassword]= useState('')
     const [phone_number, setPhone_number]= useState('')
     const [role, setRole]= useState('')
     const [errMsg, setErrMsg] = useState('');
@@ -20,7 +19,7 @@ const AddUser = () => {
         e.preventDefault();
         try {
             const response = await axiosPrivate.post("/SQL/register",
-                JSON.stringify({first_name, last_name, username, password, phone_number, role}),
+                JSON.stringify({first_name, last_name, username, phone_number, role}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
@@ -30,9 +29,9 @@ const AddUser = () => {
                 setFirst_name('')
                 setLast_name('')
                 setUsername('')
-                setPassword('')
                 setPhone_number('')
-                setSuccMsg('Nouveau utilisateur ajouter');
+                setSuccMsg("Nouveau utilisateur ajouter, " +
+                    "Un mail a été envoye a l'address email reueillie");
             }
         }catch (err) {
             if (!err?.response) {
@@ -41,6 +40,8 @@ const AddUser = () => {
                 setErrMsg('Unauthorized');
             } else if (err.response?.status === 403) {
                 setErrMsg('Forbidden');
+            } else if (err.response?.status === 406) {
+                setErrMsg('Cette address mail exist deja');
             } else {
                 setErrMsg('Fetch Failed');
             }
@@ -60,11 +61,12 @@ const AddUser = () => {
                 <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
                 <form onSubmit={(e) => onSubmit(e)} className="space-y-6">
                     <div>
-                        <label htmlFor="First name" className="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                        <label htmlFor="First name" className="block text-sm font-medium leading-6 text-gray-900">
+                            Prénom</label>
                         <div className="mt-2">
                             <input
                                 type={"text"}
-                                placeholder="  Enter your First name"
+                                placeholder="Enter votre prénom"
                                 name="first_name"
                                 value={first_name}
                                 onChange={(e) => setFirst_name(e.target.value)}
@@ -75,11 +77,12 @@ const AddUser = () => {
                     </div>
 
                     <div>
-                        <label htmlFor="Last name" className="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                        <label htmlFor="Last name" className="block text-sm font-medium leading-6 text-gray-900">
+                            Nom</label>
                         <div className="mt-2">
                             <input
                                 type={"text"}
-                                placeholder="  Enter your Last name"
+                                placeholder="Enter votre nom"
                                 name="last_name"
                                 value={last_name}
                                 onChange={(e) => setLast_name(e.target.value)}
@@ -90,11 +93,12 @@ const AddUser = () => {
                     </div>
 
                     <div>
-                        <label htmlFor="Username" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                        <label htmlFor="Username" className="block text-sm font-medium leading-6 text-gray-900">
+                            Email</label>
                         <div className="mt-2">
                             <input
-                                type={"text"}
-                                placeholder="  Enter your username"
+                                type={"email"}
+                                placeholder="Enter votre username"
                                 name="username"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
@@ -105,25 +109,12 @@ const AddUser = () => {
                     </div>
 
                     <div>
-                        <label htmlFor="Password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                        <label htmlFor="Phone numbe" className="block text-sm font-medium leading-6 text-gray-900">
+                            Numéro</label>
                         <div className="mt-2">
                             <input
                                 type={"text"}
-                                placeholder="  Enter your Password"
-                                name="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label htmlFor="Phone numbe" className="block text-sm font-medium leading-6 text-gray-900">Phone numbe</label>
-                        <div className="mt-2">
-                            <input
-                                type={"text"}
-                                placeholder="  Enter your Phone number"
+                                placeholder="Enter votre numéro"
                                 name="phone_number"
                                 value={phone_number}
                                 onChange={(e) => setPhone_number(e.target.value)}
@@ -149,7 +140,7 @@ const AddUser = () => {
                     <div>
                         <button type="submit"
                                 className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            Submit
+                            Soumettre
                         </button>
                     </div>
                 </form>
