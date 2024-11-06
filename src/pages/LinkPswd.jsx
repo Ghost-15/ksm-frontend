@@ -8,15 +8,14 @@ function LinkPswd() {
     const errRef = useRef();
 
     const [phare, setPhare] = useState({
-        username: "",
-        message: ""
+        username: ""
     });
     const [newPswd, setNewPswd] = useState('');
     const [comfirmPswd, setComfirmPswd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
 
-    const {username, message} = phare;
+    const {username} = phare;
     const { code } = useParams();
 
     useEffect( () => {
@@ -121,6 +120,7 @@ function LinkPswd() {
                         </button>
                     </div>
                     <p ref={errRef} className="text-green-600 text-center" aria-live="assertive">{succMsg}</p>
+                    <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
                 </form>
             )
                 : (
