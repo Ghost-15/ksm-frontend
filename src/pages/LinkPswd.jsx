@@ -7,15 +7,13 @@ function LinkPswd() {
     let navigate = useNavigate();
     const errRef = useRef();
 
-    const [phare, setPhare] = useState({
-        username: ""
-    });
+    const [phare, setPhare] = useState({ username: "" });
     const [newPswd, setNewPswd] = useState('');
     const [comfirmPswd, setComfirmPswd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
 
-    const {username} = phare;
+    const { username } = phare;
     const { code } = useParams();
 
     useEffect( () => {
@@ -55,7 +53,6 @@ function LinkPswd() {
                 setNewPswd('')
                 setComfirmPswd('')
                 setPhare('');
-                console.log("setPhare : " +setPhare)
                 setSuccMsg('Votre mot de passe a ete modifier');
                 navigate("/Burreau");
             }

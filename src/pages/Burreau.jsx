@@ -35,12 +35,12 @@ function Burreau() {
                             SQL
                         </button>
                     </a>
-                    {/*<Link to="/">*/}
+                    <Link to="/changePassword">
                         <button type="button"
                                 className="text-white bg-gray-900 border border-gray-900 hover:bg-blue-500 hover:border-blue-500 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3">
                             Changer le mot de passe
                         </button>
-                    {/*</Link>*/}
+                    </Link>
                     <button type="button"
                             className="text-white bg-gray-900 border border-gray-900 hover:bg-blue-500 hover:border-blue-500 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3"
                             onClick={logout}>
