@@ -59,8 +59,9 @@ function Validation() {
                         <label htmlFor="link-checkbox"
                                className="after:content-['*'] after:ml-0.5 after:text-red-500 ms-2 text-sm font-medium text-gray-900">
                             J&apos;ai pris connaissance et j&apos;accepte les <a href="#" className="text-red-600 hover:underline">
-                            conditions générales de vente </a>dont la <a href="#" className="text-red-600 hover:underline">
-                            politique de confidentialité</a> de KongoSafeManagement Shop. A compter de la validation de ce formulaire,
+                            conditions de vente </a>dont la <a href="#" className="text-red-600 hover:underline">
+                            politique de confidentialité</a> de KongoSafeManagement Shop.
+                            <br/>A compter de la validation de ce formulaire,
                             vous consentez à ce que vos données personnelles soient traitées par
                             KongoSafeManagement Shop, responsable de traitement,
                             pour la création de votre compte et la gestion de vos commandes.

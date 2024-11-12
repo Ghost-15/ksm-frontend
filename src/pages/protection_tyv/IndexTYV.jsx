@@ -49,7 +49,7 @@ function IndexTYV() {
                                     </h5>
                                     <div className="flex items-center justify-between">
                                         <span className="text-3xl font-bold text-gray-900">
-                                            117,87 FCFA HT</span>
+                                            117 87 FCFA HT</span>
                                     </div>
                                 </div>
                             </div>

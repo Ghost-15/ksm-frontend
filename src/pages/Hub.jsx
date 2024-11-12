@@ -15,7 +15,7 @@ function Hub() {
                         DES EPI</span>
                         <br/>
                     </h1>
-                    <p className="md:text-[32px]">Des equipement performant au prix adéquat</p>
+                    <p className="md:text-[32px]">Des equipements performants au prix adéquat</p>
                     {/*<div className="flex flex-col md:flex-row md:items-center justify-evenly gap-9 pt-8">*/}
                     {/*    <div className="w-1/2 h-1/2">*/}
                     {/*        <img className="" src="./images/banner-image-2.png" alt="banner image" srcSet=""/>*/}

@@ -16,7 +16,13 @@ function Endbar() {
                         {/*    <a href="#" className="hover:underline me-4 md:me-6">A propos</a>*/}
                         {/*</li>*/}
                         <li>
-                            <Link to="#" className="hover:underline me-4 md:me-6">Politique de confidentialite</Link>
+                            <Link to="#" className="hover:underline me-4 md:me-6">Politique de confidentialité</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="hover:underline me-4 md:me-6">Conditions d&apos;utilisation</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="hover:underline me-4 md:me-6">Conditions de vente</Link>
                         </li>
                         <li>
                             <Link to="/contacter-nous" className="hover:underline me-4 md:me-6">Contact</Link>
@@ -25,7 +31,7 @@ function Endbar() {
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
                 <span className="block text-sm text-gray-400 sm:text-center">
-                    © 2024 <Link to="/" className="hover:underline">
+                    Copyright © 2024 <Link to="/" className="hover:underline">
                     KongoSafeManagement Shop</Link>
                 </span>
             </div>

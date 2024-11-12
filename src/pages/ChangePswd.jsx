@@ -1,29 +1,27 @@
 import {useRef, useState} from 'react';
 import axios from "../app/api/axios";
-import useAuth from "../auth/useAuth";
 
 function ChangePswd() {
 
     const errRef = useRef();
-    const { auth } = useAuth();
 
-    const [username] = useState({ username: auth?.username });
-    const [actuelPswd, setActuelPswd] = useState('')
+    const [currentPswd, setCurrentPswd] = useState('')
     const [newPswd, setNewPswd] = useState('')
+    const [comfirmPswd, setComfirmPswd] = useState('')
     const [errMsg, setErrMsg] = useState('');
     const [succMsg, setSuccMsg] = useState('');
 
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("/backend/savePassword",
-                JSON.stringify({username, actuelPswd, newPswd}),
+            const response = await axios.post("/backend/changePswd",
+                JSON.stringify({currentPswd, newPswd, comfirmPswd}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
                 });
             if(response?.status === 200){
-                setActuelPswd('')
+                setCurrentPswd('')
                 setNewPswd('')
                 setSuccMsg('Votre mot de passe a été modifier');
             }
@@ -54,11 +52,11 @@ function ChangePswd() {
                             Mot de passe actuel</label>
                         <div className="mt-2">
                             <input
-                                type={"text"}
+                                type={"password"}
                                 placeholder="Entrer l'actuel mot de passe"
                                 name="actuelPswd"
-                                value={actuelPswd}
-                                onChange={(e) => setActuelPswd(e.target.value)}
+                                value={currentPswd}
+                                onChange={(e) => setCurrentPswd(e.target.value)}
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
@@ -69,11 +67,27 @@ function ChangePswd() {
                             Nouveau mot de passe</label>
                         <div className="mt-2">
                             <input
-                                type={"text"}
+                                type={"password"}
                                 placeholder="Entrer le nouveau mot de passe"
                                 name="newPswd"
                                 value={newPswd}
                                 onChange={(e) => setNewPswd(e.target.value)}
+                                required
+                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <label htmlFor="Comfirmation Password" className="block text-sm font-medium leading-6 text-gray-900">
+                            Comfirme mot de passe</label>
+                        <div className="mt-2">
+                            <input
+                                type={"password"}
+                                placeholder="Comfirmer le nouveau mot de passe"
+                                name="comfirmPswd"
+                                value={comfirmPswd}
+                                onChange={(e) => setComfirmPswd(e.target.value)}
                                 required
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"/>
                         </div>
