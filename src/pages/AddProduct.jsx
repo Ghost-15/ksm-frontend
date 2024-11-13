@@ -7,6 +7,7 @@ function AddProduct() {
 
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
+    const [souscategory, setSouscategory] = useState('')
     const [description, setDescription] = useState('')
     const [conditionnement, setConditionnement] = useState('')
     const [coloris, setColoris] = useState('')
@@ -23,7 +24,7 @@ function AddProduct() {
         e.preventDefault();
         try {
             const response = await axiosPrivate.post("/HUB/addProduct",
-                JSON.stringify({name, category, description, conditionnement, coloris, prix, picture_url, pdf_url}),
+                JSON.stringify({name, category,souscategory, description, conditionnement, coloris, prix, picture_url, pdf_url}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
@@ -103,6 +104,27 @@ function AddProduct() {
                             </div>
                         </div>
 
+                        <div>
+                            <label htmlFor="souscategory" className="block text-sm font-medium leading-6 text-gray-900">
+                                Sous Category</label>
+                            <div className="mt-2">
+                                <select id="souscategory"
+                                        value={souscategory}
+                                        onChange={(e) => setSouscategory(e.target.value)}
+                                        required
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                    <option selected>Selectionner la sous category</option>
+                                    <option value="tyv">Protection de la tête, des yeux et du visage</option>
+                                    <option value="auditive">Bouchons d&apos;oreilles et casques antibruit</option>
+                                    <option value="respiratoire">Protection respiratoire</option>
+                                    <option value="main">Gants de protection et de dtravail</option>
+                                    <option value="pied">Chaussures de sécurité et de travail</option>
+                                    <option value="corps">Vêtements de travail</option>
+                                    <option value="antichute">Protection antichute</option>
+                                    <option value="comp">Compléter sa protection</option>
+                                </select>
+                            </div>
+                        </div>
                         <div>
                             <label htmlFor="conditionnement" className="block text-sm font-medium leading-6 text-gray-900">
                                 Conditionnement</label>
