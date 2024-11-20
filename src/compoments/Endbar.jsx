@@ -7,7 +7,7 @@ function Endbar() {
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <Link to="/"
                        className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                        <img src="" className="h-8" alt="Logo"/>
+                        {/*<img src="" className="h-8" alt="Logo"/>*/}
                         <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
                             KongoSafeManagement Shop</span>
                     </Link>

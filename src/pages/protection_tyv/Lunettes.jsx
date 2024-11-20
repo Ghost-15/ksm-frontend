@@ -1,6 +1,32 @@
 import {Link} from "react-router-dom";
+import {useEffect, useRef, useState} from "react";
+import axios from "../../app/api/axios.js";
 
-function Lunettes() {
+function Lunettes () {
+    const errRef = useRef();
+
+    const [products, setProducts] = useState([]);
+    const [errMsg, setErrMsg] = useState('');
+
+    useEffect(() => {
+        getAllCasque();
+    }, []);
+
+    useEffect(() => {
+        setErrMsg('');
+    }, [products])
+    const getAllCasque = async () => {
+        try {
+            const result = await axios.get("/HUB/getBySousCategory/lunette");
+            setProducts(result.data);
+        } catch (err) {
+            if (!err?.response) {
+                setErrMsg("Il n'y a aucun résultat à afficher");
+            }
+            errRef.current.focus();
+        }
+    };
+
     return (
         <main className="h-screen">
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection de la tête, des yeux et du visage</h1>
@@ -35,53 +61,27 @@ function Lunettes() {
             <div className="mt-10 justify-items-center grid grid-cols-1 gap-4">
 
                 <div className="flex flex-wrap">
-
+                    <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
                     <div className="grid grid-cols-3 gap-4">
-
-                        {/*lunettes*/}
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/lunettesBengale.png" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Lunettes de sécurité ERGOS BENGALE</h5>
-                                <div className="flex items-center justify-between">
+                        <ul>
+                            {products.map((product, index) =>  (
+                                <Link to={`/detail-item/${product.name}`} key={index}>
+                                    <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
+                                        <div className="p-4">
+                                            <img src={product.picture_url} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
+                                        </div>
+                                        <div className="p-6">
+                                            <h5 className="text-l font-semibold tracking-tight text-gray-900">
+                                                {product.name}</h5>
+                                            <div className="flex items-center justify-between">
                                     <span className="text-3xl font-bold text-gray-900">
-                                        2669 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/surlunettesAlizeLite.jpg" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Surlunettes de sécurité ERGOS ALIZÉ LITE</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        2295 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/surlunettesLevantLite.png" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Surlunettes de sécurité ERGOS LEVANT LITE</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        1797 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
+                                        {product.prix} FCFA HT</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </div>

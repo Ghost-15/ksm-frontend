@@ -17,12 +17,11 @@ function Casque () {
     }, [products])
     const getAllCasque = async () => {
         try {
-            const result = await axios.get("/HUB/getAllProducts");
+            const result = await axios.get("/HUB/getBySousCategory/casque");
             setProducts(result.data);
-            console.log(result.data)
         } catch (err) {
             if (!err?.response) {
-                setErrMsg('No Server Response');
+                setErrMsg("Il n'y a aucun résultat à afficher");
             }
             errRef.current.focus();
         }
@@ -30,7 +29,7 @@ function Casque () {
 
     return (
         <main className="h-screen">
-            <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection de la tête, des yeux et du visage</h1>
+            <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF]">Protection de la tête, des yeux et du visage</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
                 <Link to="/protection-de-la-tete-des-yeux-et-du-visage">

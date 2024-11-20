@@ -1,8 +1,34 @@
 import {Link} from "react-router-dom";
+import {useEffect, useRef, useState} from "react";
+import axios from "../../app/api/axios.js";
 
 function IndexTYV() {
+    const errRef = useRef();
+
+    const [products, setProducts] = useState([]);
+    const [errMsg, setErrMsg] = useState('');
+
+    useEffect(() => {
+        getAllCasque();
+    }, []);
+
+    useEffect(() => {
+        setErrMsg('');
+    }, [products])
+    const getAllCasque = async () => {
+        try {
+            const result = await axios.get("/HUB/getByCategory/TYV");
+            setProducts(result.data);
+        } catch (err) {
+            if (!err?.response) {
+                setErrMsg("Il n'y a aucun résultat à afficher");
+            }
+            errRef.current.focus();
+        }
+    };
+
     return (
-        <div>
+        <main className="h-screen">
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF]">Protection de la tête, des yeux et du visage</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
@@ -35,152 +61,33 @@ function IndexTYV() {
             <div className="mt-10 justify-items-center grid grid-cols-1 gap-4">
 
                 <div className="flex flex-wrap">
-
+                    <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
                     <div className="grid grid-cols-3 gap-4">
-
-                        <a href="/detail-item">
-                            <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                                <div className="p-4">
-                                    <img src="https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                                </div>
-                                <div className="p-6">
-                                    <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                        Casque de sécurité KASK ZENITH X
-                                    </h5>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-3xl font-bold text-gray-900">
-                                            117 87 FCFA HT</span>
+                        <ul>
+                            {products.map((product, index) =>  (
+                                <Link to={`/detail-item/${product.name}`} key={index}>
+                                    <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
+                                        <div className="p-4">
+                                            <img src={product.picture_url} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
+                                        </div>
+                                        <div className="p-6">
+                                            <h5 className="text-l font-semibold tracking-tight text-gray-900">
+                                                {product.name}</h5>
+                                            <div className="flex items-center justify-between">
+                                    <span className="text-3xl font-bold text-gray-900">
+                                        {product.prix} FCFA HT</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/casqueElectricieen.jpg" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]"  alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Casque de sécurité ÉLECTRICIEN DELTA PLUS ONYX</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        84 067 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/mentonniere.jpg" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Mentonnière pour casques CENTURION Mentonnière</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        24 270 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-{/*face*/}
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/facebolleBLV.jpg" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Face de sécurité BOLLÉ VISOR BLV (Pour BLAST)</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        5 739 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/facebolle.jpg" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Face de sécurité BOLLÉ VISOR SUPBLV (Pour SUPERBLAST)</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        5 621 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/serreTête.jpg" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Écran 210mm INCOLORE pour serre-tête CENTURION S54</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        14 601 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-{/*lunettes*/}
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/lunettesBengale.png" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Lunettes de sécurité ERGOS BENGALE</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        2 669 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/surlunettesAlizeLite.jpg" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Surlunettes de sécurité ERGOS ALIZÉ LITE</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        2 295 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                            <div className="p-4">
-                                <img src="/produits/ptv/surlunettesLevantLite.png" className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                            </div>
-                            <div className="p-6">
-                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                    Surlunettes de sécurité ERGOS LEVANT LITE</h5>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        1797 FCFA HT</span>
-                                </div>
-                            </div>
-                        </div>
-
-
+                                </Link>
+                            ))}
+                        </ul>
                     </div>
-
-
                 </div>
             </div>
 
             <div className="mt-20"/>
-        </div>
+        </main>
     );
 }
 

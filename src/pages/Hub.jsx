@@ -40,11 +40,11 @@ function Hub() {
                         <br/>contre les impacts !
                     </h1>
                     <p>
-                        Dernier né de la marque ERGOS, le gant RGO SHOCK 398340, vous offrira une protection contre les impacts, sans compromis sur le confort et la dextérité.
+                        snfinefnperngakefgnocso;ergjoishrose;ogn;sohrgyrekhgbjdbf
                         <br/>
-                        Le modèle 398300 sera également répondre à vos attentes en vous apportant une protection complémentaire contre les chocs, grâce à son matelassage intégré à la paume.
+                        bdhbgsrgbcejcrnvboieyrtql;urgvnihjuhajfvdavmna7rtywiaevri
                         <br/>
-                        Consultez nos solutions plus en détail, en parcourant les fiches articles de ces deux références.
+                        ajdhfbcrietnvuresigtc
                     </p>
                 </div>
 
