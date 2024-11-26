@@ -39,10 +39,10 @@ function App() {
         <Navbar/>
             <Routes>
                 <Route exact path="/" element={<Hub/>}/>
-                <Route path="cart" element={<Cart />} />
+                <Route exact path="cart" element={<Cart />} />
                 <Route exact path="Login" element={<Login/>} />
                 <Route exact path="validation" element={<Validation/>}/>
-                <Route  path="/forgotPswd" element={<ForgotPswd/>}/>
+                <Route exact path="forgotPswd" element={<ForgotPswd/>}/>
                 <Route exact path="/:code" element={<LinkPswd/>}/>
 
                 {/*protection-de-la-tete-des-yeux-et-du-visage*/}
