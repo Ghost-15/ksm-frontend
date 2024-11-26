@@ -42,7 +42,7 @@ function App() {
                 <Route exact path="cart" element={<Cart />} />
                 <Route exact path="Login" element={<Login/>} />
                 <Route exact path="validation" element={<Validation/>}/>
-                <Route exact path="forgotPswd" element={<ForgotPswd/>}/>
+                <Route exact path="https://ksm-frontend.onrender.com/forgotPswd" element={<ForgotPswd/>}/>
                 <Route exact path="/:code" element={<LinkPswd/>}/>
 
                 {/*protection-de-la-tete-des-yeux-et-du-visage*/}
