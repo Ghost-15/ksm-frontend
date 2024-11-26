@@ -39,10 +39,10 @@ function App() {
         <Navbar/>
             <Routes>
                 <Route exact path="/" element={<Hub/>}/>
-                <Route exact path="/cart" element={<Cart />} />
+                <Route path="cart" element={<Cart />} />
                 <Route exact path="Login" element={<Login/>} />
                 <Route exact path="validation" element={<Validation/>}/>
-                <Route exact path="/forgotPswd" element={<ForgotPswd/>}/>
+                <Route exact path="ksm-frontend.onrender.com/forgotPswd" element={<ForgotPswd/>}/>
                 <Route exact path="/:code" element={<LinkPswd/>}/>
 
                 {/*protection-de-la-tete-des-yeux-et-du-visage*/}
@@ -73,7 +73,7 @@ function App() {
 
 
                 <Route exact path="detail-item/:productName" element={<DetailItem/>}/>
-                <Route exact path="contacter-nous" element={<Contact/>}/>
+                <Route exact path="/ksm-frontend.onrender.com/contacter-nous" element={<Contact/>}/>
                 <Route exact path="*" element={<Missing/>} />
 
 
