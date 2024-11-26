@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from "tailwindcss";
 
 export default defineConfig({
+  server: {
+    port: 5173, // or any other port you prefer
+    open: true, // automatically open the app in the browser
+    },
   plugins: [react()],
   css: {
     postcss: {
