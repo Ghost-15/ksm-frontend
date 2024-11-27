@@ -1,9 +1,11 @@
 import {useRef, useState} from 'react';
 import useAxiosPrivate from "../auth/useAxiosPrivate.js";
+import useAuth from "../auth/useAuth.js";
 
 function AddProduct() {
     const axiosPrivate = useAxiosPrivate();
     const errRef = useRef();
+    const { auth } = useAuth();
 
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
@@ -22,9 +24,10 @@ function AddProduct() {
         setErrMsg('')
         setSuccMsg('')
         e.preventDefault();
+        console.log(auth?.data)
         try {
             const response = await axiosPrivate.post("/HUB/addProduct",
-                JSON.stringify({name, category,souscategory, description, conditionnement, coloris, prix, picture_url, pdf_url}),
+                JSON.stringify({name, category, souscategory, description, conditionnement, coloris, prix, picture_url, pdf_url}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
@@ -42,7 +45,7 @@ function AddProduct() {
             }
         }catch (err) {
             if (!err?.response) {
-                setErrMsg('No Server Response');
+                setErrMsg('Fetch Failed');
             } else if (err.response?.status === 401) {
                 setErrMsg('Unauthorized');
             } else if (err.response?.status === 403) {

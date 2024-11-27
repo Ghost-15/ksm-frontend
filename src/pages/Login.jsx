@@ -41,6 +41,7 @@ const Login = () => {
             );
             const accessToken = response?.data?.accessToken;
             const role = response?.data?.role;
+            console.log(response.data)
             setAuth({username, role, accessToken});
             // setAuth({username, password, role, accessToken});
             navigate(from, { replace: true });
