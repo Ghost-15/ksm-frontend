@@ -1,9 +1,11 @@
 import {Link, useParams} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import axios from '../app/api/axios';
 import AppContext from "../auth/AppProvider.js";
 
 const DetailItem = () => {
+
+    const errRef = useRef();
 
     const [item, setItem] = useState({
         name: "",
@@ -14,6 +16,8 @@ const DetailItem = () => {
         picture_url: "",
         pdf_url:""
     })
+    const [errMsg, setErrMsg] = useState('');
+
     const {name, description, conditionnement, coloris, prix, picture_url, pdf_url} = item;
     const { productName } = useParams();
     const { cartItems, addToCart , removeFromCart} = useContext(AppContext)
@@ -26,12 +30,15 @@ const DetailItem = () => {
     }, []);
     const getProduct = async () => {
         const result = await axios.get(`/HUB/getProduct/${productName}`);
-        console.log(result.data)
         setItem(result.data);
+        if(result.data === ""){
+            setErrMsg("Il n'y a aucun résultat à afficher");
+        }
     };
 
     return (
         <div className="h-screen flex items-center justify-center">
+            <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
             {item != null ? (
                 <div className='max-w-[1240px] mx-auto grid grid-cols-2 gap-4 mb-10'>
                 <div className='flex flex-col justify-center'>

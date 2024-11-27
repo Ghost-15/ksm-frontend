@@ -65,21 +65,23 @@ function Lunettes () {
                     <div className="grid grid-cols-3 gap-4">
                         <ul>
                             {products.map((product, index) =>  (
-                                <Link to={`/detail-item/${product.name}`} key={index}>
-                                    <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
-                                        <div className="p-4">
-                                            <img src={product.picture_url} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
-                                        </div>
-                                        <div className="p-6">
-                                            <h5 className="text-l font-semibold tracking-tight text-gray-900">
-                                                {product.name}</h5>
-                                            <div className="flex items-center justify-between">
-                                    <span className="text-3xl font-bold text-gray-900">
-                                        {product.prix} FCFA HT</span>
+                                <article key={index}>
+                                    <Link to={`/detail-item/${product.name}`}>
+                                        <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
+                                            <div className="p-4">
+                                                <img src={product.picture_url} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
+                                            </div>
+                                            <div className="p-6">
+                                                <h5 className="text-l font-semibold tracking-tight text-gray-900">
+                                                    {product.name}</h5>
+                                                <div className="flex items-center justify-between">
+                                        <span className="text-3xl font-bold text-gray-900">
+                                            {product.prix} FCFA HT</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Link>
+                                    </Link>
+                                </article>
                             ))}
                         </ul>
                     </div>

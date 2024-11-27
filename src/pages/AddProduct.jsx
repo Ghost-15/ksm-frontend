@@ -114,14 +114,9 @@ function AddProduct() {
                                         required
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option selected>Selectionner la sous category</option>
-                                    <option value="tyv">Protection de la tête, des yeux et du visage</option>
-                                    <option value="auditive">Bouchons d&apos;oreilles et casques antibruit</option>
-                                    <option value="respiratoire">Protection respiratoire</option>
-                                    <option value="main">Gants de protection et de dtravail</option>
-                                    <option value="pied">Chaussures de sécurité et de travail</option>
-                                    <option value="corps">Vêtements de travail</option>
-                                    <option value="antichute">Protection antichute</option>
-                                    <option value="comp">Compléter sa protection</option>
+                                    <option value="casque">casque</option>
+                                    <option value="lunette">lunette</option>
+                                    <option value="masque">masque</option>
                                 </select>
                             </div>
                         </div>

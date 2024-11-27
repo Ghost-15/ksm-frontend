@@ -35,7 +35,7 @@ const AddUser = () => {
             }
         }catch (err) {
             if (!err?.response) {
-                setErrMsg('No Server Response');
+                setErrMsg('Fetch Failed');
             } else if (err.response?.status === 401) {
                 setErrMsg('Unauthorized');
             } else if (err.response?.status === 403) {

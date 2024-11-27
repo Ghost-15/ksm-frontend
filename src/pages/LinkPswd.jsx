@@ -58,7 +58,7 @@ function LinkPswd() {
             }
         } catch (err) {
             if (!err?.response) {
-                setErrMsg('No Server Response');
+                setErrMsg('Fetch Failed');
             } else if (err.response?.status === 406) {
                 setErrMsg('Password Incorrect');
             } else {

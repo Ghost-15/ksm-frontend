@@ -60,3 +60,6 @@
 #          slot-name: 'Production'
 #          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BABD4DFAEFB643A1ADC2838655F55581 }}
 #          package: .
+
+
+npm run dev -- --host 0.0.0.0 --port 5173
