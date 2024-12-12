@@ -1,7 +1,13 @@
+import {Helmet} from "react-helmet";
 
 function IndexA() {
     return (
         <main className="h-screen">
+            <Helmet>
+                <meta name="description" content="Les chutes de hauteur représentent un risque qui ne donne aucun droit à l'erreur. Protégez-vous !" />
+                <title>Protection antichute | EPI | KongoSafeManagement Shop</title>
+            </Helmet>
+
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection antichute</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">

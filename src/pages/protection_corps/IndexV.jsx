@@ -1,7 +1,13 @@
+import {Helmet} from "react-helmet";
 
 function IndexV() {
     return (
         <main className="h-screen">
+            <Helmet>
+                <meta name="description" content="Spécialiste reconnu de la vente du vêtement technique professionnel, le Groupe RG habille tous les secteurs d’activités. Découvrez notre sélection." />
+                <title>Vêtements de travail | EPI | KongoSafeManagement Shop</title>
+            </Helmet>
+
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Vêtements de travail</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">

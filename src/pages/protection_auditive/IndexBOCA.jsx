@@ -1,7 +1,13 @@
+import {Helmet} from "react-helmet";
 
 function IndexBoca() {
     return (
         <main className="h-screen">
+            <Helmet>
+                <meta name="description" content="Il n’existe pas un protecteur auditif universel. Nos experts ont sélectionné, pour vous, les solutions de protection auditive les plus efficaces pour une grande variété de risques et d'activités." />
+                <title>Bouchons d&apos;oreilles et casques antibruit | EPI | KongoSafeManagement Shop</title>
+            </Helmet>
+
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Bouchons d&apos;oreilles et casques antibruit</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">

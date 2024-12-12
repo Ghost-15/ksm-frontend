@@ -1,15 +1,13 @@
 import {useRef, useState} from 'react';
 import useAxiosPrivate from "../auth/useAxiosPrivate.js";
-import useAuth from "../auth/useAuth.js";
 
 function AddProduct() {
     const axiosPrivate = useAxiosPrivate();
     const errRef = useRef();
-    const { auth } = useAuth();
 
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
-    const [souscategory, setSouscategory] = useState('')
+    const [sousCategory, setSousCategory] = useState('')
     const [description, setDescription] = useState('')
     const [conditionnement, setConditionnement] = useState('')
     const [coloris, setColoris] = useState('')
@@ -24,10 +22,9 @@ function AddProduct() {
         setErrMsg('')
         setSuccMsg('')
         e.preventDefault();
-        console.log(auth?.data)
         try {
             const response = await axiosPrivate.post("/HUB/addProduct",
-                JSON.stringify({name, category, souscategory, description, conditionnement, coloris, prix, picture_url, pdf_url}),
+                JSON.stringify({name, category, sousCategory, description, conditionnement, coloris, prix, picture_url, pdf_url}),
                 {
                     headers: {'Content-Type': 'application/json'},
                     withCredentials: true
@@ -95,7 +92,7 @@ function AddProduct() {
                                     required
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 <option selected>Selectionner la category</option>
-                                <option value="tyv">Protection de la tête, des yeux et du visage</option>
+                                <option value="TYV">Protection de la tête, des yeux et du visage</option>
                                 <option value="auditive">Bouchons d&apos;oreilles et casques antibruit</option>
                                 <option value="respiratoire">Protection respiratoire</option>
                                 <option value="main">Gants de protection et de dtravail</option>
@@ -108,12 +105,12 @@ function AddProduct() {
                         </div>
 
                         <div>
-                            <label htmlFor="souscategory" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="sousCategory" className="block text-sm font-medium leading-6 text-gray-900">
                                 Sous Category</label>
                             <div className="mt-2">
-                                <select id="souscategory"
-                                        value={souscategory}
-                                        onChange={(e) => setSouscategory(e.target.value)}
+                                <select id="sousCategory"
+                                        value={sousCategory}
+                                        onChange={(e) => setSousCategory(e.target.value)}
                                         required
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option selected>Selectionner la sous category</option>

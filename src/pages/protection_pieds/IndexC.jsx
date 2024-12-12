@@ -1,7 +1,13 @@
+import {Helmet} from "react-helmet";
 
 function IndexC() {
     return (
         <main className="h-screen">
+            <Helmet>
+                <meta name="description" content="Découvrez notre sélection de chaussures de protection. Pour des travaux en intérieur comme à l'extérieur, protégez-vous des risques d'écrasement, de perforation ou de glissade." />
+                <title>Chaussures de sécurité et de travail | EPI | KongoSafeManagement Shop</title>
+            </Helmet>
+
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Chaussures de sécurité et de travail</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">

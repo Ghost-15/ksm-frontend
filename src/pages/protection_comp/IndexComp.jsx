@@ -1,7 +1,13 @@
+import {Helmet} from "react-helmet";
 
 function IndexComp() {
     return (
         <main className="h-screen">
+            <Helmet>
+                <meta name="description" content="Parce que la sécurité au travail, c'est prévenir tous les risques en milieu professionnel, nos experts ont sélectionné pour vous des produits d'hygiène, d'essuyage et des équipements pour sécuriser votre environnement de travail." />
+                <title>Compléter sa protection | EPI | KongoSafeManagement Shop</title>
+            </Helmet>
+
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Compléter sa protection</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">

@@ -4,7 +4,7 @@ function NosProduits() {
     return (
         <div className="mt-10 justify-items-center grid grid-cols-1 gap-4">
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div className="max-w-xs p-6 bg-gray-800 border border-gray-700 rounded-lg shadow">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
                         Protection de la tête, des yeux et du visage</h5>
@@ -70,7 +70,7 @@ function NosProduits() {
 
             {/**/}
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div className="max-w-xs p-6 bg-gray-800 border border-gray-700 rounded-lg shadow">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
                         Chaussures de sécurité et de travail</h5>

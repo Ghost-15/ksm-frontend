@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {useEffect, useRef, useState} from "react";
 import axios from "../../app/api/axios.js";
+import {Helmet} from "react-helmet";
 
 function IndexTYV() {
     const errRef = useRef();
@@ -29,6 +30,11 @@ function IndexTYV() {
 
     return (
         <main className="h-screen">
+            <Helmet>
+                <meta name="description" content="Casques, casquettes, écrans et lunettes de sécurité, retrouvez ici notre sélection d'EPI, adaptés à chaque activité, pour vous protéger efficacement la tête et au visage." />
+                <title>Protection de la tête, des yeux et du visage | EPI | KongoSafeManagement Shop</title>
+            </Helmet>
+
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF]">Protection de la tête, des yeux et du visage</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
@@ -69,7 +75,7 @@ function IndexTYV() {
                                     <Link to={`/detail-item/${product.name}`}>
                                         <div className="w-72 bg-white border border-gray-300 shadow hover:border-4 hover:border-blue-500 hover:shadow-2xl">
                                             <div className="p-4">
-                                                <img src={product.picture_url} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt=""/>
+                                                <img src={product.picture_url} className="block w-full w-[150px] h-[150px] lg:w-[250px] lg:h-[250px]" alt="image"/>
                                             </div>
                                             <div className="p-6">
                                                 <h5 className="text-l font-semibold tracking-tight text-gray-900">

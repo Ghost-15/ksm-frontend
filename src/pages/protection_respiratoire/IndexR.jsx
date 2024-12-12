@@ -1,7 +1,13 @@
+import {Helmet} from "react-helmet";
 
 function IndexR() {
     return (
         <main className="h-screen">
+            <Helmet>
+                <meta name="description" content="La vie, les activités industrielles et économiques et la nature créent des polluants. Découvrez ici les solutions de protection respiratoire sélectionnées par nos experts." />
+                <title>Protection respiratoire | EPI | KongoSafeManagement Shop</title>
+            </Helmet>
+
             <h1 className="mt-10 flex justify-center text-5xl font-bold text-[#3399FF] ">Protection respiratoire</h1>
 
             <div className="flex items-center justify-center py-4 md:py-8 flex-wrap">
