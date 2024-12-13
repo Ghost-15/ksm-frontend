@@ -29,6 +29,7 @@ import RequireAuth from "./auth/RequireAuth.js";
 import Casque from "./pages/protection_tyv/Casque.jsx";
 import Cart from "./pages/Cart.jsx";
 import LinkPswd from "./pages/LinkPswd.jsx";
+// import Test from "./pages/Test.jsx";
 
 function App() {
     useEffect(()=>{
@@ -44,6 +45,7 @@ function App() {
                 <Route exact path="validation" element={<Validation/>}/>
                 <Route exact path="forgotPswd" element={<ForgotPswd/>}/>
                 <Route exact path="/:code" element={<LinkPswd/>}/>
+                {/*<Route exact path="test" element={<Test/>}/>*/}
 
                 {/*protection-de-la-tete-des-yeux-et-du-visage*/}
                 <Route exact path="protection-de-la-tete-des-yeux-et-du-visage" element={<IndexTYV/>}/>

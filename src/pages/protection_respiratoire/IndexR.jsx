@@ -4,6 +4,7 @@ function IndexR() {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="La vie, les activités industrielles et économiques et la nature créent des polluants. Découvrez ici les solutions de protection respiratoire sélectionnées par nos experts." />
                 <title>Protection respiratoire | EPI | KongoSafeManagement Shop</title>
             </Helmet>

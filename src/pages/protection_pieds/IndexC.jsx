@@ -4,6 +4,7 @@ function IndexC() {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Découvrez notre sélection de chaussures de protection. Pour des travaux en intérieur comme à l'extérieur, protégez-vous des risques d'écrasement, de perforation ou de glissade." />
                 <title>Chaussures de sécurité et de travail | EPI | KongoSafeManagement Shop</title>
             </Helmet>

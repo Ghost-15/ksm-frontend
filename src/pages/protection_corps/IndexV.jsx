@@ -4,6 +4,7 @@ function IndexV() {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Spécialiste reconnu de la vente du vêtement technique professionnel, le Groupe RG habille tous les secteurs d’activités. Découvrez notre sélection." />
                 <title>Vêtements de travail | EPI | KongoSafeManagement Shop</title>
             </Helmet>

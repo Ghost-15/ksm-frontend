@@ -4,6 +4,7 @@ function IndexA() {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Les chutes de hauteur représentent un risque qui ne donne aucun droit à l'erreur. Protégez-vous !" />
                 <title>Protection antichute | EPI | KongoSafeManagement Shop</title>
             </Helmet>

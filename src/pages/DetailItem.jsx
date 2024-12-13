@@ -2,6 +2,7 @@ import {Link, useParams} from "react-router-dom";
 import {useContext, useEffect, useRef, useState} from "react";
 import axios from '../app/api/axios';
 import AppContext from "../auth/AppProvider.js";
+import {Helmet} from "react-helmet";
 
 const DetailItem = () => {
 
@@ -38,6 +39,12 @@ const DetailItem = () => {
 
     return (
         <div className="h-screen flex items-center justify-center">
+            <Helmet>
+                <meta name="robots" content="index, follow"/>
+                <meta name="description" content={description} />
+                <title>{name} | EPI | KongoSafeManagement Shop</title>
+            </Helmet>
+
             <p ref={errRef} className="text-red-600 text-center" aria-live="assertive">{errMsg}</p>
             {item != null ? (
                 <div className='max-w-[1240px] mx-auto grid grid-cols-2 gap-4 mb-10'>

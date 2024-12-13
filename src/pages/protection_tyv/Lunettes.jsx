@@ -31,6 +31,7 @@ function Lunettes () {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Bien choisir sa protection oculaire est essentiel pour protéger ses yeux. Vous conseiller, c'est notre métier. Découvrez notre sélection." />
                 <title>Lunettes de sécurité | EPI | KongoSafeManagement Shop</title>
             </Helmet>

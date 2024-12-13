@@ -31,6 +31,7 @@ function Casque () {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Les casques et casquettes de sécurité assurent sécurité, confort, style et longévité. Retrouvez notre sélection de casques et casquettes de sécurité hautes performances." />
                 <title>Casque de sécurité | EPI | KongoSafeManagement Shop</title>
             </Helmet>

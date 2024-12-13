@@ -4,6 +4,7 @@ function IndexBoca() {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Il n’existe pas un protecteur auditif universel. Nos experts ont sélectionné, pour vous, les solutions de protection auditive les plus efficaces pour une grande variété de risques et d'activités." />
                 <title>Bouchons d&apos;oreilles et casques antibruit | EPI | KongoSafeManagement Shop</title>
             </Helmet>

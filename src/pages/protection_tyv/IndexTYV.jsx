@@ -31,6 +31,7 @@ function IndexTYV() {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Casques, casquettes, écrans et lunettes de sécurité, retrouvez ici notre sélection d'EPI, adaptés à chaque activité, pour vous protéger efficacement la tête et au visage." />
                 <title>Protection de la tête, des yeux et du visage | EPI | KongoSafeManagement Shop</title>
             </Helmet>

@@ -6,6 +6,7 @@ function Hub() {
     return (
         <div>
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Vente des equipements et vêtements de sécurité" />
                 <title>KongoSafeManagement Shop - Vente specialise des EPI</title>
             </Helmet>

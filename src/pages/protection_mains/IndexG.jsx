@@ -4,6 +4,7 @@ function IndexG() {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Nos experts vous aident à trouver le gant partenaire de votre travail au quotidien. Celui qui vous protège dans les meilleures conditions de confort." />
                 <title>Gants de protection et de travail | EPI | KongoSafeManagement Shop</title>
             </Helmet>

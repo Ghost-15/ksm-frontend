@@ -4,6 +4,7 @@ function IndexComp() {
     return (
         <main className="h-screen">
             <Helmet>
+                <meta name="robots" content="index, follow"/>
                 <meta name="description" content="Parce que la sécurité au travail, c'est prévenir tous les risques en milieu professionnel, nos experts ont sélectionné pour vous des produits d'hygiène, d'essuyage et des équipements pour sécuriser votre environnement de travail." />
                 <title>Compléter sa protection | EPI | KongoSafeManagement Shop</title>
             </Helmet>
